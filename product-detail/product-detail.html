@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>LOGO—雲眠四件組</title>
+  <link rel="stylesheet" href="../css/base.css">
+  <link rel="stylesheet" href="../css/components.css">
+  <link rel="stylesheet" href="../css/product-detail.css">
+</head>
+
+<body>
+  <!-- HEADER -->
+  <header class="header">
+    <a class="header-logo" href="../index/index.html">LOGO <span></span></a>
+
+    <nav>
+      <ul class="header-nav">
+        <li><a href="../index/index.html">首頁</a></li>
+        <li><a href="../about/about.html">品牌故事</a></li>
+        <li><a href="../product/product.html">所有商品</a></li>
+        <li><a href="#footer">聯絡我們</a></li>
+      </ul>
+    </nav>
+
+    <button class="menu-toggle" id="menuToggle" aria-label="開啟選單" aria-expanded="false">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+
+    <div class="header-actions">
+      <a href="#">搜尋</a>
+      <a href="#" class="cart-btn">購物車 (0)</a>
+    </div>
+  </header>
+
+  <!-- MOBILE DRAWER -->
+  <div class="mobile-drawer" id="mobileDrawer">
+    <a href="../index/index.html" class="drawer-link">首頁</a>
+    <a href="../about/about.html" class="drawer-link">品牌故事</a>
+    <a href="../product/product.html" class="drawer-link">所有商品</a>
+    <a href="#footer" class="drawer-link">聯絡我們</a>
+  </div>
+
+  <!-- PRODUCT DETAIL -->
+  <main class="product-detail-page">
+    <nav class="breadcrumb" aria-label="breadcrumb">
+      <a href="../index/index.html">首頁</a>
+      <span>/</span>
+      <a href="../product/product.html">所有商品</a>
+      <span>/</span>
+      <span>雲眠四件組</span>
+    </nav>
+
+    
+
+    <section class="product-detail-layout">
+      
+      <div class="product-detail-gallery">
+        <div class="product-main-image">
+          <img id="mainProductImage"
+              src="https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?auto=format&fit=crop&w=1000&q=80"
+              alt="雲眠四件組">
+        </div>
+        <div class="product-sub-images">
+          <img src="https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?auto=format&fit=crop&w=1000&q=80" alt="寢具主圖" class="thumb-image">
+          <img src="https://images.unsplash.com/photo-1631049307264-da0ec9d70304?auto=format&fit=crop&w=500&q=80" alt="寢具細節" class="thumb-image">
+          <img src="https://images.unsplash.com/photo-1540518614846-7eded433c457?auto=format&fit=crop&w=500&q=80" alt="枕套細節" class="thumb-image">
+        </div>
+      </div>
+      
+
+      <article class="product-detail-info">
+        <p class="section-eyebrow">Bedding Collection</p>
+        <h1 class="product-detail-title">雲眠四件組</h1>
+        <p class="product-detail-subtitle">600TC 長絨棉 · 霧灰藍 / 燕麥白 / 煙粉</p>
+
+        <div class="product-detail-price">NT$ 6,800</div>
+
+        <p class="product-detail-desc">
+          以高支數長絨棉製成，觸感細緻柔滑，兼具透氣與親膚性。適合希望提升睡眠質感、打造安定寢室氛圍的日常使用。
+        </p>
+
+        <div class="product-detail-actions">
+          <a href="#" class="detail-cart-btn">加入購物車</a>
+          <a href="../product/product.html" class="detail-back-link">返回商品列表</a>
+        </div>
+
+        <div class="product-spec-list">
+          <div class="product-spec-item">
+            <span>內容物</span>
+            <p>被套 ×1、床包 ×1、枕套 ×2</p>
+          </div>
+          <div class="product-spec-item">
+            <span>材質</span>
+            <p>600TC 有機長絨棉</p>
+          </div>
+          <div class="product-spec-item">
+            <span>尺寸</span>
+            <p>標準雙人 / 加大雙人</p>
+          </div>
+          <div class="product-spec-item">
+            <span>保養方式</span>
+            <p>建議冷水機洗、低溫烘乾，避免漂白劑</p>
+          </div>
+        </div>
+      </article>
+    </section>
+
+    <section class="detail-note-section">
+      <div>
+        <p class="section-eyebrow">Care Guide</p>
+        <h2 class="detail-note-title">讓柔軟維持更久</h2>
+      </div>
+      <p>
+        首次使用前建議單獨清洗。日常洗滌請使用中性洗劑，並避免長時間曝曬，以維持纖維柔韌與色澤穩定。
+      </p>
+    </section>
+
+    <section class="recommend-section">
+      <div class="recommend-header">
+        <div>
+          <p class="section-eyebrow">You May Also Like</p>
+          <h2 class="recommend-title">推薦商品</h2>
+        </div>
+        <a href="../product/product.html" class="recommend-link">查看全部商品</a>
+      </div>
+
+      <div class="recommend-carousel" id="recommendSlider">
+  
+        <button class="carousel-btn carousel-btn-prev">‹</button>
+
+        <div class="recommend-track">
+          <a href="../product-detail/product-detail.html" class="product-card">
+            <div class="product-card-img">
+              <img src="https://images.unsplash.com/photo-1631049307264-da0ec9d70304?auto=format&fit=crop&w=800&q=80" alt="晨霧天絲被套">
+            </div>
+            <div class="product-card-body">
+              <div class="product-card-name">晨霧天絲被套</div>
+              <div class="product-card-sub">TENCEL™ 萊賽爾 · 標準 / 加大</div>
+              <div class="product-card-footer">
+                <div>
+                  <div class="product-price">NT$ 3,200</div>
+                  <div class="product-price-sub">單品被套</div>
+                </div>
+                <button class="add-btn" onclick="event.preventDefault()">+</button>
+              </div>
+            </div>
+          </a>
+
+          <a href="../product-detail/product-detail.html" class="product-card">
+            <div class="product-card-img">
+              <img src="https://images.unsplash.com/photo-1540518614846-7eded433c457?auto=format&fit=crop&w=800&q=80" alt="靜眠枕套組">
+            </div>
+            <div class="product-card-body">
+              <div class="product-card-name">靜眠枕套組</div>
+              <div class="product-card-sub">埃及棉 · 信封式設計 · 一組兩入</div>
+              <div class="product-card-footer">
+                <div>
+                  <div class="product-price">NT$ 1,480</div>
+                  <div class="product-price-sub">兩入一組</div>
+                </div>
+                <button class="add-btn" onclick="event.preventDefault()">+</button>
+              </div>
+            </div>
+          </a>
+
+          <a href="../product-detail/product-detail.html" class="product-card">
+            <div class="product-card-img">
+              <img src="https://images.unsplash.com/photo-1616594039964-ae9021a400a0?auto=format&fit=crop&w=800&q=80" alt="柔光床包組">
+            </div>
+            <div class="product-card-body">
+              <div class="product-card-name">柔光床包組</div>
+              <div class="product-card-sub">水洗棉 · 親膚透氣 · 多尺寸可選</div>
+              <div class="product-card-footer">
+                <div>
+                  <div class="product-price">NT$ 2,680</div>
+                  <div class="product-price-sub">床包單品</div>
+                </div>
+                <button class="add-btn" onclick="event.preventDefault()">+</button>
+              </div>
+            </div>
+          </a>
+
+          <a href="../product-detail/product-detail.html" class="product-card">
+            <div class="product-card-img">
+              <img src="https://images.unsplash.com/photo-1615873968403-89e068629265?auto=format&fit=crop&w=800&q=80" alt="冬日法蘭絨被套">
+            </div>
+            <div class="product-card-body">
+              <div class="product-card-name">冬日法蘭絨被套</div>
+              <div class="product-card-sub">蓬鬆保暖 · 冬季限定 · 柔霧米色</div>
+              <div class="product-card-footer">
+                <div>
+                  <div class="product-price">NT$ 3,880</div>
+                  <div class="product-price-sub">單品被套</div>
+                </div>
+                <button class="add-btn" onclick="event.preventDefault()">+</button>
+              </div>
+            </div>
+          </a>
+
+          <a href="../product-detail/product-detail.html" class="product-card">
+            <div class="product-card-img">
+              <img src="https://images.unsplash.com/photo-1616046229478-9901c5536a45?auto=format&fit=crop&w=800&q=80" alt="安眠保潔墊">
+            </div>
+            <div class="product-card-body">
+              <div class="product-card-name">安眠保潔墊</div>
+              <div class="product-card-sub">防潑水 · 透氣薄墊 · 靜音設計</div>
+              <div class="product-card-footer">
+                <div>
+                  <div class="product-price">NT$ 1,980</div>
+                  <div class="product-price-sub">單品保潔墊</div>
+                </div>
+                <button class="add-btn" onclick="event.preventDefault()">+</button>
+              </div>
+            </div>
+          </a>
+        
+      </div>
+        <button class="carousel-btn carousel-btn-next" aria-label="下一個商品">
+                &#10095;
+        </button>
+    </div>
+
+    
+    </section>
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="footer" id="footer">
+    <div class="footer-grid">
+      <div>
+        <div class="footer-logo">LOGO<span></span></div>
+        <p class="footer-brand-desc">致力於以有機材質與職人工藝，打造每一個值得被好好對待的夜晚。台灣品牌，全球配送。</p>
+      </div>
+      <div class="footer-col">
+        <h4>快速連結</h4>
+        <ul>
+          <li><a href="../index/index.html">首頁</a></li>
+          <li><a href="../about/about.html">關於我們</a></li>
+          <li><a href="../product/product.html">所有商品</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>社群</h4>
+        <ul>
+          <li><a href="#">Instagram</a></li>
+          <li><a href="#">Line</a></li>
+          <li><a href="#">Facebook</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>客服資訊</h4>
+        <ul>
+          <li><a href="#">Email: service@email.com</a></li>
+          <li><a href="#">電話: 02-1234-5678</a></li>
+          <li><a href="#">服務時間: 09:00 - 18:00</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2026 MIAN 眠 · All rights reserved.</p>
+      <p></p>
+    </div>
+  </footer>
+
+  <script>
+    const menuToggle = document.getElementById('menuToggle');
+    const mobileDrawer = document.getElementById('mobileDrawer');
+
+    menuToggle.addEventListener('click', () => {
+      const isOpen = menuToggle.classList.toggle('active');
+      mobileDrawer.classList.toggle('active');
+      menuToggle.setAttribute('aria-expanded', isOpen);
+    });
+
+    // ── 商品圖片切換 ──
+    const mainProductImage = document.getElementById('mainProductImage');
+    const thumbImages = document.querySelectorAll('.thumb-image');
+
+    thumbImages.forEach((thumb) => {
+      thumb.addEventListener('click', () => {
+        mainProductImage.src = thumb.src;
+        mainProductImage.alt = thumb.alt;
+
+        thumbImages.forEach(img => img.classList.remove('active'));
+        thumb.classList.add('active');
+      });
+    });
+
+    // ── 推薦輪播 ──
+    const slider = document.getElementById('recommendSlider');
+
+      if (slider) {
+        const track = slider.querySelector('.recommend-track');
+        const prevBtn = slider.querySelector('.carousel-btn-prev');
+        const nextBtn = slider.querySelector('.carousel-btn-next');
+        const cards = track.querySelectorAll('.product-card');
+
+        let currentIndex = 0;
+        const gap = 20;
+        const visibleCards = 3;
+
+        function isMobileCarousel() {
+          return window.matchMedia('(max-width: 768px)').matches;
+        }
+
+        function getCardWidth() {
+          return cards[0] ? cards[0].offsetWidth : 0;
+        }
+
+        function updateCarousel() {
+          if (isMobileCarousel()) {
+            track.style.transform = 'none';
+            return;
+          }
+
+          const cardWidth = getCardWidth();
+          track.style.transform =
+            `translateX(-${currentIndex * (cardWidth + gap)}px)`;
+        }
+
+        nextBtn.addEventListener('click', () => {
+          if (isMobileCarousel()) return;
+
+          const maxIndex = Math.max(0, cards.length - visibleCards);
+          if (currentIndex < maxIndex) {
+            currentIndex++;
+            updateCarousel();
+          }
+        });
+
+        prevBtn.addEventListener('click', () => {
+          if (isMobileCarousel()) return;
+
+          if (currentIndex > 0) {
+            currentIndex--;
+            updateCarousel();
+          }
+        });
+
+        window.addEventListener('resize', () => {
+          currentIndex = 0;
+          updateCarousel();
+        });
+    }
+  </script>
+
+  
+</body>
+</html>

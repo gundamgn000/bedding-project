@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>LOGO— 高級有機寢具</title>
+  <link rel="stylesheet" href="../css/base.css">
+  <link rel="stylesheet" href="../css/components.css">
+  <link rel="stylesheet" href="../css/index.css">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Zen+Kaku+Gothic+New:wght@300;400;500&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+  <!-- ── HEADER ── -->
+  <header class="header">
+    <div class="header-logo">LOGO <span> </span></div>
+
+     <nav>
+      <ul class="header-nav">
+        <li><a href="../index/index.html">首頁</a></li>
+        <li><a href="../about/about.html">品牌故事</a></li>
+        <li><a href="../product/product.html">所有商品</a></li>
+        <li><a href="#footer">聯絡我們</a></li>
+      </ul>
+    </nav>
+
+    <button class="menu-toggle" id="menuToggle" aria-label="開啟選單" aria-expanded="false">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+
+    <div class="header-actions">
+      <a href="#">搜尋</a>
+      <a href="#" class="cart-btn">購物車 (0)</a>
+    </div>
+  </header>
+
+  <!-- Mobile Drawer -->
+  <div class="mobile-drawer" id="mobileDrawer">
+    <a href="../index/index.html" class="drawer-link active">首頁</a>
+    <a href="../about/about.html" class="drawer-link active">品牌故事</a>
+    <a href="../product/product.html" class="drawer-link">所有商品</a>
+    <a href="#footer" class="drawer-link">聯絡我們</a>
+  </div>
+
+  <!-- ── HERO ── -->
+  <section class="hero">
+    <div class="hero-left">
+      <p class="hero-eyebrow">2026 春夏新品</p>
+      <h1 class="hero-title">每一夜，都值得<br><em>被好好對待</em></h1>
+      <p class="hero-subtitle">以百分之百有機長絨棉織就，觸膚即感柔軟如雲。讓寢室成為你最私密的療癒空間。</p>
+      <div class="hero-cta">
+        <button class="btn-primary">探索系列</button>
+        <button class="btn-ghost">選購指南</button>
+      </div>
+    </div>
+    <div class="hero-right">
+      <div class="hero-img-wrapper">
+        <img
+          class="hero-img"
+          src="https://images.unsplash.com/photo-1555041469-a586c61ea9bc?auto=format&fit=crop&w=1200&q=80"
+          alt="高級寢具情境"
+        >
+        <div class="hero-badge">
+          <div class="hero-badge-label">支數</div>
+          <div class="hero-badge-value">600 TC 長絨棉</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── MARQUEE ── -->
+  <div class="marquee-wrap">
+    <div class="marquee-track" id="marqueeTrack">
+      <span class="marquee-item">有機長絨棉 <span class="marquee-dot">·</span></span>
+      <span class="marquee-item">OEKO-TEX 認證 <span class="marquee-dot">·</span></span>
+      <span class="marquee-item">免費配送 <span class="marquee-dot">·</span></span>
+      <span class="marquee-item">60 天試睡計畫 <span class="marquee-dot">·</span></span>
+      <span class="marquee-item">永續製造 <span class="marquee-dot">·</span></span>
+      <span class="marquee-item">職人手工縫製 <span class="marquee-dot">·</span></span>
+      <!-- 重複一份讓動畫無縫 -->
+      <span class="marquee-item">有機長絨棉 <span class="marquee-dot">·</span></span>
+      <span class="marquee-item">OEKO-TEX 認證 <span class="marquee-dot">·</span></span>
+      <span class="marquee-item">免費配送 <span class="marquee-dot">·</span></span>
+      <span class="marquee-item">60 天試睡計畫 <span class="marquee-dot">·</span></span>
+      <span class="marquee-item">永續製造 <span class="marquee-dot">·</span></span>
+      <span class="marquee-item">職人手工縫製 <span class="marquee-dot">·</span></span>
+    </div>
+  </div>
+
+  <!-- ── FEATURES ── -->
+  <div class="features">
+    <div class="feature-item">
+      <span class="feature-icon">🌿</span>
+      <div class="feature-name">有機認證</div>
+      <div class="feature-desc">GOTS & OEKO-TEX 雙重認證，對肌膚零負擔</div>
+    </div>
+    <div class="feature-item">
+      <span class="feature-icon">☁️</span>
+      <div class="feature-name">雲感觸感</div>
+      <div class="feature-desc">600 支長絨棉，觸膚輕柔如羽</div>
+    </div>
+    <div class="feature-item">
+      <span class="feature-icon">🌙</span>
+      <div class="feature-name">60 天試睡</div>
+      <div class="feature-desc">不滿意全額退費，讓你安心嘗試</div>
+    </div>
+    <div class="feature-item">
+      <span class="feature-icon">✦</span>
+      <div class="feature-name">職人工藝</div>
+      <div class="feature-desc">台灣在地縫製，每件品管嚴格把關</div>
+    </div>
+  </div>
+
+  
+
+  <!-- ── CONTENT AREA ── -->
+  <div class="content-area" id="contentArea">
+
+    
+
+    <div class="main-content">
+
+      <!-- PRODUCTS -->
+      <section class="section">
+        <div class="section-header">
+          <div>
+            <p class="section-eyebrow">精選系列</p>
+            <h2 class="section-title">為你的夜晚，<em>精心挑選</em></h2>
+          </div>
+          <a href="../product/product.html" class="section-link">全部商品</a>
+        </div>
+
+        <div class="product-grid">
+
+          <a href="../product-detail/product-detail.html" class="product-card">
+            <div class="product-card-img">
+              <img src="https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?auto=format&fit=crop&w=600&q=80" alt="雲眠四件組">
+              
+            </div>
+            <div class="product-card-body">
+              <div class="product-card-name">雲眠四件組</div>
+              <div class="product-card-sub">600TC 長絨棉 · 霧灰藍 / 燕麥白 / 煙粉</div>
+              <div class="product-card-footer">
+                <div>
+                  <div class="product-price">NT$ 6,800</div>
+                  <div class="product-price-sub">含被套、床包、枕套 ×2</div>
+                </div>
+                <button class="add-btn" onclick="event.preventDefault()">+</button>
+              </div>
+            </div>
+          </a>
+
+          <a href="../product-detail/product-detail.html" class="product-card">
+            <div class="product-card-img">
+              <img src="https://images.unsplash.com/photo-1631049307264-da0ec9d70304?auto=format&fit=crop&w=600&q=80" alt="晨霧天絲被套">
+              
+            </div>
+            <div class="product-card-body">
+              <div class="product-card-name">晨霧天絲被套</div>
+              <div class="product-card-sub">TENCEL™ 萊賽爾 · 標準 / 加大</div>
+              <div class="product-card-footer">
+                <div>
+                  <div class="product-price">NT$ 3,200</div>
+                  <div class="product-price-sub">單品被套</div>
+                </div>
+                <button class="add-btn" onclick="event.preventDefault()">+</button>
+              </div>
+            </div>
+          </a>
+
+          <a href="../product-detail/product-detail.html" class="product-card">
+            <div class="product-card-img">
+              <img src="https://images.unsplash.com/photo-1540518614846-7eded433c457?auto=format&fit=crop&w=600&q=80" alt="靜眠枕套組">
+            </div>
+            <div class="product-card-body">
+              <div class="product-card-name">靜眠枕套組</div>
+              <div class="product-card-sub">埃及棉 · 信封式設計 · 一組兩入</div>
+              <div class="product-card-footer">
+                <div>
+                  <div class="product-price">NT$ 1,480</div>
+                  <div class="product-price-sub">兩入一組</div>
+                </div>
+                <button class="add-btn" onclick="event.preventDefault()">+</button>
+              </div>
+            </div>
+          </a>
+
+        </div>
+      </section>
+
+      <!-- LIFESTYLE SPLIT -->
+      <div class="lifestyle">
+        <div class="lifestyle-img">
+          <img src="https://images.unsplash.com/photo-1567016526105-22da7c13161a?auto=format&fit=crop&w=800&q=80" alt="寢室情境">
+        </div>
+        <div class="lifestyle-content">
+          <p class="section-eyebrow">品牌理念</p>
+          <p class="lifestyle-quote">「睡眠，是生命中最被低估的一種奢侈。」</p>
+          <p class="lifestyle-text">我們相信，好的睡眠從觸感開始。MIAN 眠以嚴選有機長絨棉為核心，透過職人工藝，將每一條床單製成你今晚最期待的儀式感。不只是寢具，而是你給自己的一份溫柔。</p>
+          <button class="btn-primary" href="../about/about.html" class="drawer-link">了解我們</button>
+        </div>
+      </div>
+
+      <!-- STATS -->
+      <div class="stats-row">
+        <div class="stat-item">
+          <div class="stat-num">98<em>%</em></div>
+          <div class="stat-label">顧客好評率</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-num">60<em>天</em></div>
+          <div class="stat-label">無憂試睡保證</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-num">12<em>k+</em></div>
+          <div class="stat-label">幸福眠客</div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+
+
+  
+
+  <!-- ── FOOTER ── -->
+  <footer class="footer" id="footer">
+    <div class="footer-grid">
+      <div>
+        <div class="footer-logo">LOGO<span> </span></div>
+        <p class="footer-brand-desc">致力於以有機材質與職人工藝，打造每一個值得被好好對待的夜晚。台灣品牌，全球配送。</p>
+      </div>
+      <div class="footer-col">
+        <h4>快速連結</h4>
+        <ul>
+            <li><a href="../index/index.html">首頁</a></li>
+            <li><a href="../about/about.html">關於我們</a></li>
+            <li><a href="../Product/product.html">所有商品</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>社群</h4>
+        <ul>
+            <li><a href="#">Instagram</a></li>
+            <li><a href="#">Line</a></li>
+            <li><a href="#">Facebook</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>客服資訊</h4>
+        <ul>
+          <li><a href="#">Email: service@email.com</a></li>
+          <li><a href="#">電話: 02-1234-5678</a></li>
+          <li><a href="#">Facebook</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2026 MIAN 眠 · All rights reserved.</p>
+      <p>     </p>
+    </div>
+  </footer>
+
+  <!-- ── SCRIPTS ── -->
+  <script>
+    // ── 漢堡選單 ──
+    const menuToggle = document.getElementById('menuToggle');
+    const mobileDrawer = document.getElementById('mobileDrawer');
+
+    menuToggle.addEventListener('click', () => {
+      const isOpen = menuToggle.classList.toggle('active');
+      mobileDrawer.classList.toggle('active');
+      menuToggle.setAttribute('aria-expanded', isOpen);
+    });
+    
+  </script>
+
+</body>
+</html>

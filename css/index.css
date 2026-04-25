@@ -1,0 +1,1177 @@
+/* ==========================================================================
+   MIAN 眠 — Bedding Brand
+   index.css
+   首頁專用：Hero / Marquee / Features / Sidebar / Sections / Newsletter
+   ========================================================================== */
+
+/* ==========================================================================
+   Hero
+   ========================================================================== */
+.hero {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  min-height: 82vh;
+  overflow: hidden;
+}
+
+.hero-left {
+  background: var(--cream);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 80px 60px 80px 50px;
+  position: relative;
+}
+
+.hero-left::before {
+  content: '';
+  position: absolute;
+  top: 40px;
+  left: 40px;
+  right: 40px;
+  bottom: 40px;
+  border: 0.5px solid var(--sand);
+  pointer-events: none;
+}
+
+.hero-eyebrow {
+  font-size: 11px;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--stone);
+  margin-bottom: 24px;
+  font-weight: 400;
+  position: relative;
+  z-index: 1;
+}
+
+.hero-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 62px;
+  font-weight: 300;
+  line-height: 1.12;
+  color: var(--charcoal);
+  margin-bottom: 28px;
+  letter-spacing: -0.01em;
+  position: relative;
+  z-index: 1;
+}
+
+.hero-title em {
+  font-style: italic;
+  color: var(--stone);
+}
+
+.hero-subtitle {
+  font-size: 14px;
+  color: var(--stone);
+  line-height: 1.8;
+  max-width: 360px;
+  margin-bottom: 48px;
+  font-weight: 300;
+  position: relative;
+  z-index: 1;
+}
+
+.hero-cta {
+  display: flex;
+  gap: 16px;
+  align-items: center;
+  position: relative;
+  z-index: 1;
+}
+
+.hero-right {
+  position: relative;
+  overflow: hidden;
+  background: var(--linen);
+}
+
+.hero-img-wrapper {
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+.hero-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: saturate(0.85) contrast(0.97);
+  transition: transform 8s ease;
+}
+
+.hero-right:hover .hero-img {
+  transform: scale(1.04);
+}
+
+.hero-badge {
+  position: absolute;
+  bottom: 36px;
+  left: 36px;
+  background: rgba(253, 252, 250, 0.92);
+  backdrop-filter: blur(4px);
+  padding: 16px 22px;
+  border-radius: 2px;
+  border: 0.5px solid var(--sand);
+}
+
+.hero-badge-label {
+  font-size: 10px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--stone);
+}
+
+.hero-badge-value {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 22px;
+  font-weight: 400;
+  color: var(--charcoal);
+  margin-top: 2px;
+}
+
+/* ==========================================================================
+   Marquee
+   ========================================================================== */
+.marquee-wrap {
+  background: var(--charcoal);
+  padding: 14px 0;
+  overflow: hidden;
+}
+
+.marquee-track {
+  display: flex;
+  animation: marquee 24s linear infinite;
+  white-space: nowrap;
+}
+
+.marquee-item {
+  font-size: 11px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--sand);
+  padding: 0 40px;
+  flex-shrink: 0;
+}
+
+.marquee-dot {
+  color: var(--stone);
+  padding: 0 4px;
+}
+
+@keyframes marquee {
+  0%   { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+/* ==========================================================================
+   Features Strip
+   ========================================================================== */
+.features {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  border-bottom: 0.5px solid var(--linen);
+}
+
+.feature-item {
+  padding: 36px 32px;
+  border-right: 0.5px solid var(--linen);
+  transition: background 0.2s;
+}
+
+.feature-item:last-child {
+  border-right: none;
+}
+
+.feature-item:hover {
+  background: var(--cream);
+}
+
+.feature-icon {
+  font-size: 22px;
+  margin-bottom: 12px;
+  display: block;
+}
+
+.feature-name {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 17px;
+  font-weight: 400;
+  color: var(--charcoal);
+  margin-bottom: 6px;
+}
+
+.feature-desc {
+  font-size: 12px;
+  color: var(--stone);
+  line-height: 1.7;
+  font-weight: 300;
+}
+
+/* ==========================================================================
+   Layout Controls
+   ========================================================================== */
+.layout-strip {
+  background: var(--cream);
+  border-bottom: 0.5px solid var(--linen);
+  padding: 10px 50px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.layout-strip-label {
+  font-size: 11px;
+  letter-spacing: 0.1em;
+  color: var(--stone);
+  text-transform: uppercase;
+}
+
+.layout-chip {
+  padding: 5px 14px;
+  border-radius: 20px;
+  border: 0.5px solid var(--sand);
+  font-size: 11px;
+  letter-spacing: 0.08em;
+  color: var(--stone);
+  background: none;
+  cursor: pointer;
+  font-family: 'Zen Kaku Gothic New', sans-serif;
+  transition: all 0.2s;
+}
+
+.layout-chip.active {
+  background: var(--charcoal);
+  border-color: var(--charcoal);
+  color: var(--warm-white);
+}
+
+.layout-chip:hover:not(.active) {
+  border-color: var(--stone);
+  color: var(--charcoal);
+}
+
+/* ==========================================================================
+   Content Area & Sidebar
+   ========================================================================== */
+.content-area {
+  display: flex;
+  transition: all 0.3s ease;
+}
+
+.content-area--sidebar-right {
+  flex-direction: row-reverse;
+}
+
+.sidebar {
+  width: 200px;
+  flex-shrink: 0;
+  background: var(--warm-white);
+  border-right: 0.5px solid var(--linen);
+  padding: 40px 24px;
+  position: sticky;
+  top: 64px;
+  height: calc(100vh - 64px);
+  overflow-y: auto;
+  transition: all 0.3s ease;
+}
+
+.content-area--sidebar-right .sidebar {
+  border-right: none;
+  border-left: 0.5px solid var(--linen);
+}
+
+.sidebar-heading {
+  font-size: 10px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--stone);
+  margin-bottom: 20px;
+  padding-left: 12px;
+  border-left: 2px solid var(--mist);
+}
+
+.sidebar-nav li {
+  margin-bottom: 2px;
+}
+
+.sidebar-nav a {
+  display: block;
+  padding: 9px 12px;
+  font-size: 13px;
+  color: var(--stone);
+  border-radius: 2px;
+  transition: all 0.2s;
+  font-weight: 300;
+}
+
+.sidebar-nav a:hover,
+.sidebar-nav a.active {
+  background: var(--linen);
+  color: var(--charcoal);
+}
+
+.sidebar-divider {
+  height: 0.5px;
+  background: var(--linen);
+  margin: 16px 0;
+}
+
+.main-content {
+  flex: 1;
+  min-width: 0;
+}
+
+/* ==========================================================================
+   Section Shared
+   ========================================================================== */
+.section {
+  padding: 80px 50px;
+}
+
+.section-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  margin-bottom: 48px;
+}
+
+.section-eyebrow {
+  font-size: 10px;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--stone);
+  margin-bottom: 10px;
+}
+
+.section-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 38px;
+  font-weight: 300;
+  line-height: 1.2;
+  color: var(--charcoal);
+}
+
+.section-title em {
+  font-style: italic;
+  color: var(--stone);
+}
+
+.section-link {
+  font-size: 11px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--stone);
+  border-bottom: 0.5px solid var(--sand);
+  padding-bottom: 2px;
+  transition: color 0.2s;
+  flex-shrink: 0;
+}
+
+.section-link:hover {
+  color: var(--charcoal);
+}
+
+/* ==========================================================================
+   Lifestyle Split
+   ========================================================================== */
+.lifestyle {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  min-height: 520px;
+  border-top: 0.5px solid var(--linen);
+  border-bottom: 0.5px solid var(--linen);
+}
+
+.lifestyle-img {
+  overflow: hidden;
+  background: var(--linen);
+}
+
+.lifestyle-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: saturate(0.82);
+  transition: transform 8s ease;
+}
+
+.lifestyle-img:hover img {
+  transform: scale(1.03);
+}
+
+.lifestyle-content {
+  background: var(--cream);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 70px 60px;
+}
+
+.lifestyle-quote {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 30px;
+  font-weight: 300;
+  font-style: italic;
+  line-height: 1.5;
+  color: var(--charcoal);
+  margin-bottom: 24px;
+}
+
+.lifestyle-text {
+  font-size: 13px;
+  color: var(--stone);
+  line-height: 1.9;
+  font-weight: 300;
+  margin-bottom: 40px;
+  max-width: 380px;
+}
+
+/* ==========================================================================
+   Stats Row
+   ========================================================================== */
+.stats-row {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  border-top: 0.5px solid var(--linen);
+  border-bottom: 0.5px solid var(--linen);
+}
+
+.stat-item {
+  padding: 50px 40px;
+  border-right: 0.5px solid var(--linen);
+  text-align: center;
+}
+
+.stat-item:last-child {
+  border-right: none;
+}
+
+.stat-num {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 52px;
+  font-weight: 300;
+  color: var(--charcoal);
+  line-height: 1;
+  margin-bottom: 8px;
+}
+
+.stat-num em {
+  font-style: italic;
+  color: var(--stone);
+  font-size: 32px;
+}
+
+.stat-label {
+  font-size: 11px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--stone);
+}
+
+/* ==========================================================================
+   Material Section
+   ========================================================================== */
+.material-section {
+  background: var(--linen);
+  padding: 70px 70px;
+}
+
+.material-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 24px;
+  margin-top: 48px;
+}
+
+.material-card {
+  background: var(--warm-white);
+  padding: 28px 24px;
+  border-radius: 2px;
+  transition: transform 0.2s;
+}
+
+.material-card:hover {
+  transform: translateY(-4px);
+}
+
+.material-swatch {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  margin-bottom: 18px;
+  border: 2px solid rgba(0, 0, 0, 0.04);
+}
+
+.material-name {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 18px;
+  font-weight: 400;
+  color: var(--charcoal);
+  margin-bottom: 6px;
+}
+
+.material-desc {
+  font-size: 12px;
+  color: var(--stone);
+  line-height: 1.7;
+  font-weight: 300;
+}
+
+/* ==========================================================================
+   Newsletter
+   ========================================================================== */
+.newsletter {
+  background: var(--cream);
+  padding: 60px 50px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-top: 0.5px solid var(--linen);
+}
+
+.newsletter-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 28px;
+  font-weight: 300;
+  color: var(--charcoal);
+  margin-bottom: 6px;
+}
+
+.newsletter-sub {
+  font-size: 12px;
+  color: var(--stone);
+  font-weight: 300;
+}
+
+.newsletter-form {
+  display: flex;
+}
+
+.newsletter-input {
+  padding: 12px 20px;
+  border: 0.5px solid var(--sand);
+  border-right: none;
+  background: var(--warm-white);
+  font-size: 12px;
+  font-family: 'Zen Kaku Gothic New', sans-serif;
+  color: var(--charcoal);
+  width: 260px;
+  outline: none;
+  border-radius: 2px 0 0 2px;
+  transition: border-color 0.2s;
+}
+
+.newsletter-input:focus {
+  border-color: var(--stone);
+}
+
+.newsletter-input::placeholder {
+  color: var(--sand);
+}
+
+.newsletter-submit {
+  background: var(--charcoal);
+  color: var(--warm-white);
+  border: none;
+  padding: 12px 24px;
+  font-size: 11px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  cursor: pointer;
+  font-family: 'Zen Kaku Gothic New', sans-serif;
+  border-radius: 0 2px 2px 0;
+  transition: background 0.2s;
+  white-space: nowrap;
+}
+
+.newsletter-submit:hover {
+  background: var(--stone);
+}
+
+/* ==========================================================================
+   Responsive
+   ========================================================================== */
+@media (min-width: 769px) and (max-width: 1024px) {
+  .hero {
+    grid-template-columns: 1fr;
+    min-height: auto;
+  }
+
+  .hero-left {
+    padding: 60px 40px;
+    text-align: center;
+    align-items: center;
+  }
+
+  .hero-left::before {
+    display: none;
+  }
+
+  .hero-title {
+    font-size: 48px;
+  }
+
+  .hero-subtitle {
+    max-width: 480px;
+    text-align: center;
+  }
+
+  .hero-right {
+    height: 360px;
+  }
+
+  .features {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .features .feature-item:nth-child(2) {
+    border-right: none;
+  }
+
+  .features .feature-item:nth-child(3) {
+    border-right: 0.5px solid var(--linen);
+    border-top: 0.5px solid var(--linen);
+  }
+
+  .features .feature-item:nth-child(4) {
+    border-right: none;
+    border-top: 0.5px solid var(--linen);
+  }
+
+  .layout-strip {
+    padding: 10px 24px;
+  }
+
+  .sidebar {
+    width: 180px;
+    padding: 30px 16px;
+  }
+
+  .section {
+    padding: 50px 30px;
+  }
+
+  .lifestyle {
+    grid-template-columns: 1fr;
+  }
+
+  .lifestyle-img {
+    height: 320px;
+  }
+
+  .lifestyle-content {
+    padding: 50px 40px;
+  }
+
+  .material-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .newsletter {
+    flex-direction: column;
+    gap: 28px;
+    text-align: center;
+    padding: 50px 30px;
+  }
+}
+
+@media (max-width: 768px) {
+  .hero {
+    grid-template-columns: 1fr;
+    min-height: auto;
+  }
+
+  .hero-left {
+    padding: 48px 24px;
+    text-align: center;
+    align-items: center;
+  }
+
+  .hero-left::before {
+    display: none;
+  }
+
+  .hero-title {
+    font-size: 38px;
+  }
+
+  .hero-subtitle {
+    max-width: 100%;
+    text-align: center;
+  }
+
+  .hero-cta {
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .btn-primary {
+    width: 100%;
+    text-align: center;
+  }
+
+  .hero-right {
+    height: 280px;
+  }
+
+  .hero-badge {
+    bottom: 20px;
+    left: 20px;
+  }
+
+  .features {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .features .feature-item:nth-child(2) {
+    border-right: none;
+  }
+
+  .features .feature-item:nth-child(3) {
+    border-right: 0.5px solid var(--linen);
+    border-top: 0.5px solid var(--linen);
+  }
+
+  .features .feature-item:nth-child(4) {
+    border-right: none;
+    border-top: 0.5px solid var(--linen);
+  }
+
+  .layout-strip {
+    padding: 10px 20px;
+    flex-wrap: wrap;
+  }
+
+  .content-area {
+    flex-direction: column !important;
+  }
+
+  .sidebar {
+    width: 100%;
+    position: static;
+    height: auto;
+    border-right: none;
+    border-bottom: 0.5px solid var(--linen);
+    padding: 20px;
+    overflow-x: auto;
+  }
+
+  .sidebar-nav {
+    display: flex;
+    gap: 8px;
+  }
+
+  .sidebar-nav li {
+    flex-shrink: 0;
+    margin-bottom: 0;
+  }
+
+  .sidebar-nav a {
+    white-space: nowrap;
+  }
+
+  .sidebar-divider {
+    display: none;
+  }
+
+  .sidebar-heading + ul + .sidebar-divider + .sidebar-heading,
+  .sidebar-heading + ul + .sidebar-divider {
+    display: none;
+  }
+
+  .section {
+    padding: 40px 20px;
+  }
+
+  .section-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 16px;
+  }
+
+  .section-title {
+    font-size: 28px;
+  }
+
+  .lifestyle {
+    grid-template-columns: 1fr;
+  }
+
+  .lifestyle-img {
+    height: 260px;
+  }
+
+  .lifestyle-content {
+    padding: 40px 24px;
+  }
+
+  .lifestyle-quote {
+    font-size: 22px;
+  }
+
+  .stats-row {
+    grid-template-columns: 1fr;
+  }
+
+  .stat-item {
+    border-right: none;
+    border-bottom: 0.5px solid var(--linen);
+    padding: 36px 24px;
+  }
+
+  .stat-item:last-child {
+    border-bottom: none;
+  }
+
+  .material-section {
+    padding: 40px 20px;
+  }
+
+  .material-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px;
+  }
+
+  .newsletter {
+    flex-direction: column;
+    gap: 24px;
+    padding: 40px 20px;
+    text-align: center;
+  }
+
+  .newsletter-form {
+    width: 100%;
+  }
+
+  .newsletter-input {
+    flex: 1;
+    width: auto;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero-title {
+    font-size: 32px;
+  }
+
+  .features {
+    grid-template-columns: 1fr;
+  }
+
+  .features .feature-item {
+    border-right: none;
+    border-bottom: 0.5px solid var(--linen);
+  }
+
+  .features .feature-item:nth-child(3) {
+    border-right: none;
+    border-top: none;
+  }
+
+  .features .feature-item:nth-child(4) {
+    border-top: none;
+  }
+
+  .material-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ==========================================================================
+   Responsive Refinement
+   自然適應：平板 / 手機細節調整
+   ========================================================================== */
+
+@media (min-width: 769px) and (max-width: 1180px) {
+  .hero {
+    grid-template-columns: 1fr;
+    min-height: auto;
+  }
+
+  .hero-left {
+    padding: 72px 52px;
+    align-items: flex-start;
+    text-align: left;
+  }
+
+  .hero-left::before {
+    top: 28px;
+    left: 28px;
+    right: 28px;
+    bottom: 28px;
+  }
+
+  .hero-title {
+    font-size: clamp(44px, 7vw, 58px);
+    max-width: 720px;
+  }
+
+  .hero-subtitle {
+    max-width: 560px;
+  }
+
+  .hero-right {
+    height: 420px;
+  }
+
+  .section {
+    padding: 64px 34px;
+  }
+
+  .section-header {
+    margin-bottom: 36px;
+  }
+
+  .product-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 18px;
+  }
+
+  .lifestyle {
+    grid-template-columns: 1fr;
+  }
+
+  .lifestyle-img {
+    height: 360px;
+  }
+
+  .stats-row {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .hero {
+    grid-template-columns: 1fr;
+    min-height: auto;
+  }
+
+  .hero-left {
+    padding: 52px 22px 46px;
+    text-align: left;
+    align-items: flex-start;
+  }
+
+  .hero-left::before {
+    display: none;
+  }
+
+  .hero-eyebrow {
+    margin-bottom: 16px;
+  }
+
+  .hero-title {
+    font-size: clamp(34px, 12vw, 44px);
+    line-height: 1.08;
+    margin-bottom: 22px;
+  }
+
+  .hero-subtitle {
+    max-width: 100%;
+    margin-bottom: 32px;
+    text-align: left;
+  }
+
+  .hero-cta {
+    width: 100%;
+    gap: 12px;
+  }
+
+  .hero-cta .btn-primary,
+  .hero-cta .btn-ghost {
+    width: 100%;
+    justify-content: center;
+    text-align: center;
+  }
+
+  .hero-right {
+    height: 320px;
+  }
+
+  .hero-badge {
+    left: 18px;
+    bottom: 18px;
+    padding: 12px 16px;
+  }
+
+  .marquee-wrap {
+    padding: 11px 0;
+  }
+
+  .marquee-item {
+    font-size: 10px;
+    padding: 0 24px;
+  }
+
+  .features {
+    grid-template-columns: 1fr;
+  }
+
+  .feature-item {
+    padding: 28px 22px;
+    border-right: none;
+    border-bottom: 0.5px solid var(--linen);
+  }
+
+  .section {
+    padding: 46px 20px;
+  }
+
+  .section-header {
+    gap: 14px;
+    margin-bottom: 30px;
+  }
+
+  .section-title {
+    font-size: 30px;
+  }
+
+  .product-grid {
+    grid-template-columns: 1fr;
+    gap: 18px;
+  }
+
+  .lifestyle-img {
+    height: 300px;
+  }
+
+  .lifestyle-content {
+    padding: 42px 24px;
+  }
+
+  .stats-row {
+    grid-template-columns: 1fr;
+  }
+
+  .stat-item {
+    padding: 34px 20px;
+  }
+}
+
+@media (max-width: 430px) {
+  .hero-right {
+    height: 260px;
+  }
+
+  .section {
+    padding: 40px 18px;
+  }
+
+  .product-card-body {
+    padding: 18px 18px 22px;
+  }
+
+  .product-card-footer {
+    align-items: flex-end;
+    gap: 10px;
+  }
+}
+
+/* ==========================================================================
+   Mobile RWD Density Fix
+   手機版資訊密度修正：商品卡兩欄 / 推薦卡縮小
+   ========================================================================== */
+
+@media (max-width: 768px) {
+  .product-grid,
+  .product-section .product-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 12px;
+  }
+
+  .product-card-img {
+    aspect-ratio: 4 / 3.8;
+  }
+
+  .product-card-body {
+    padding: 14px 12px 16px;
+  }
+
+  .product-card-name {
+    font-size: 15px;
+    line-height: 1.35;
+  }
+
+  .product-card-sub {
+    font-size: 10px;
+    line-height: 1.5;
+    margin-bottom: 10px;
+  }
+
+  .product-card-footer {
+    align-items: flex-end;
+    gap: 8px;
+  }
+
+  .product-price {
+    font-size: 15px;
+  }
+
+  .product-price-sub {
+    font-size: 9px;
+  }
+
+  .add-btn {
+    width: 28px;
+    height: 28px;
+    font-size: 15px;
+    flex-shrink: 0;
+  }
+
+  .features {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .feature-item {
+    padding: 24px 18px;
+  }
+}
+
+/* 很窄的手機也維持兩欄，但再壓縮 */
+@media (max-width: 430px) {
+  .product-grid,
+  .product-section .product-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 10px;
+  }
+
+  .product-card-img {
+    aspect-ratio: 4 / 3.5;
+  }
+
+  .product-card-body {
+    padding: 12px 10px 14px;
+  }
+
+  .product-card-name {
+    font-size: 14px;
+  }
+
+  .product-card-sub {
+    font-size: 9px;
+  }
+
+  .product-price {
+    font-size: 14px;
+  }
+
+  .add-btn {
+    width: 26px;
+    height: 26px;
+  }
+}
+
+/* product-detail 推薦商品手機橫滑密度修正 */
+@media (max-width: 768px) {
+  .recommend-track .product-card {
+    min-width: 46%;
+  }
+}
+
+@media (max-width: 430px) {
+  .recommend-track .product-card {
+    min-width: 48%;
+  }
+}

@@ -1,0 +1,136 @@
+/* ==========================================================================
+   MIAN 眠 — Bedding Brand
+   components.css
+   共用元件：商品卡
+   ========================================================================== */
+
+/* ==========================================================================
+   Product Grid
+   ========================================================================== */
+.product-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2px;
+}
+
+.product-card {
+  background: var(--warm-white);
+  cursor: pointer;
+  overflow: hidden;
+  position: relative;
+  border: 0.5px solid var(--linen);
+  transition: border-color 0.2s;
+}
+
+.product-card:hover {
+  border-color: var(--sand);
+}
+
+.product-card-img {
+  aspect-ratio: 4 / 5;
+  overflow: hidden;
+  background: var(--linen);
+  position: relative;
+}
+
+.product-card-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: saturate(0.88) contrast(0.97);
+  transition: transform 0.6s ease;
+}
+
+.product-card:hover .product-card-img img {
+  transform: scale(1.06);
+}
+
+.product-tag {
+  position: absolute;
+  top: 16px;
+  left: 16px;
+  background: var(--warm-white);
+  font-size: 10px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--charcoal);
+  padding: 5px 10px;
+  border-radius: 1px;
+}
+
+.product-card-body {
+  padding: 20px 22px 24px;
+}
+
+.product-card-name {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 18px;
+  font-weight: 400;
+  color: var(--charcoal);
+  margin-bottom: 4px;
+}
+
+.product-card-sub {
+  font-size: 11px;
+  color: var(--stone);
+  letter-spacing: 0.06em;
+  margin-bottom: 12px;
+  font-weight: 300;
+}
+
+.product-card-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.product-price {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 18px;
+  font-weight: 400;
+  color: var(--charcoal);
+}
+
+.product-price-sub {
+  font-size: 10px;
+  color: var(--stone);
+  letter-spacing: 0.08em;
+  margin-top: 2px;
+}
+
+.add-btn {
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  border: 0.5px solid var(--sand);
+  background: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 18px;
+  color: var(--stone);
+  transition: all 0.2s;
+  font-family: 'Zen Kaku Gothic New', sans-serif;
+}
+
+.add-btn:hover {
+  background: var(--charcoal);
+  color: var(--warm-white);
+  border-color: var(--charcoal);
+}
+
+/* ==========================================================================
+   Components Responsive
+   ========================================================================== */
+@media (min-width: 769px) and (max-width: 1024px) {
+  .product-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .product-grid {
+    grid-template-columns: 1fr;
+  }
+}

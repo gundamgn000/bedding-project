@@ -1,0 +1,318 @@
+/* ==========================================================================
+   product.css
+   商品列表頁專用樣式
+   ========================================================================== */
+
+.product-page {
+  background: var(--warm-white);
+}
+
+.product-hero {
+  padding: 86px 50px 54px;
+  background: var(--cream);
+  border-bottom: 0.5px solid var(--linen);
+}
+
+.product-page-desc {
+  color: var(--stone);
+  line-height: 1.9;
+  font-size: 14px;
+  max-width: 660px;
+  margin-top: 18px;
+  font-weight: 300;
+}
+
+.product-section {
+  padding: 70px 50px 90px;
+}
+
+.product-section-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  margin-bottom: 42px;
+}
+
+.product-section-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 34px;
+  font-weight: 300;
+  color: var(--charcoal);
+  line-height: 1.25;
+}
+
+/* 商品頁卡片間距稍微打開，避免太像後台清單 */
+.product-section .product-grid {
+  gap: 18px;
+}
+
+.product-section .product-card {
+  border-color: var(--linen);
+}
+
+@media (min-width: 769px) and (max-width: 1024px) {
+  .product-hero {
+    padding: 64px 30px 42px;
+  }
+
+  .product-section {
+    padding: 54px 30px 70px;
+  }
+}
+
+@media (max-width: 768px) {
+  .product-hero {
+    padding: 52px 20px 36px;
+  }
+
+  .product-section {
+    padding: 42px 20px 60px;
+  }
+
+  .product-section-header {
+    margin-bottom: 28px;
+  }
+
+  .product-section-title {
+    font-size: 28px;
+  }
+
+  .product-section .product-grid {
+    gap: 18px;
+  }
+}
+
+/* ==========================================================================
+   Responsive Refinement
+   自然適應：平板 / 手機細節調整
+   ========================================================================== */
+
+@media (min-width: 769px) and (max-width: 1180px) {
+  .product-hero {
+    padding: 66px 34px 44px;
+  }
+
+  .product-page-desc {
+    max-width: 620px;
+  }
+
+  .product-section {
+    padding: 56px 34px 76px;
+  }
+
+  .product-section .product-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 18px;
+  }
+}
+
+@media (max-width: 768px) {
+  .product-hero {
+    padding: 50px 20px 34px;
+  }
+
+  .product-page-desc {
+    font-size: 13px;
+    line-height: 1.9;
+  }
+
+  .product-section {
+    padding: 40px 20px 58px;
+  }
+
+  .product-section-header {
+    display: block;
+    margin-bottom: 28px;
+  }
+
+  .product-section-title {
+    font-size: 30px;
+  }
+
+  .product-section .product-grid {
+    grid-template-columns: 1fr;
+    gap: 18px;
+  }
+
+  .product-card-img {
+    aspect-ratio: 4 / 3.3;
+  }
+}
+
+@media (max-width: 430px) {
+  .product-hero {
+    padding: 44px 18px 30px;
+  }
+
+  .product-section {
+    padding: 36px 18px 52px;
+  }
+
+  .product-card-body {
+    padding: 18px 18px 22px;
+  }
+}
+
+/* ==========================================================================
+   Mobile RWD Density Fix
+   手機版資訊密度修正：商品卡兩欄 / 推薦卡縮小
+   ========================================================================== */
+
+@media (max-width: 768px) {
+  .product-grid,
+  .product-section .product-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 12px;
+  }
+
+  .product-card-img {
+    aspect-ratio: 4 / 3.8;
+  }
+
+  .product-card-body {
+    padding: 14px 12px 16px;
+  }
+
+  .product-card-name {
+    font-size: 15px;
+    line-height: 1.35;
+  }
+
+  .product-card-sub {
+    font-size: 10px;
+    line-height: 1.5;
+    margin-bottom: 10px;
+  }
+
+  .product-card-footer {
+    align-items: flex-end;
+    gap: 8px;
+  }
+
+  .product-price {
+    font-size: 15px;
+  }
+
+  .product-price-sub {
+    font-size: 9px;
+  }
+
+  .add-btn {
+    width: 28px;
+    height: 28px;
+    font-size: 15px;
+    flex-shrink: 0;
+  }
+
+  .features {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .feature-item {
+    padding: 24px 18px;
+  }
+}
+
+/* 很窄的手機也維持兩欄，但再壓縮 */
+@media (max-width: 430px) {
+  .product-grid,
+  .product-section .product-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 10px;
+  }
+
+  .product-card-img {
+    aspect-ratio: 4 / 3.5;
+  }
+
+  .product-card-body {
+    padding: 12px 10px 14px;
+  }
+
+  .product-card-name {
+    font-size: 14px;
+  }
+
+  .product-card-sub {
+    font-size: 9px;
+  }
+
+  .product-price {
+    font-size: 14px;
+  }
+
+  .add-btn {
+    width: 26px;
+    height: 26px;
+  }
+}
+
+/* product-detail 推薦商品手機橫滑密度修正 */
+@media (max-width: 768px) {
+  .recommend-track .product-card {
+    min-width: 46%;
+  }
+}
+
+@media (max-width: 430px) {
+  .recommend-track .product-card {
+    min-width: 48%;
+  }
+}
+
+/* ================================
+   Pagination
+================================ */
+
+.pagination {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  margin-top: 60px;
+}
+
+.page-btn {
+  min-width: 36px;
+  height: 36px;
+  border: 0.5px solid var(--linen);
+  background: var(--warm-white);
+  color: var(--stone);
+  font-size: 13px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+/* hover */
+.page-btn:hover {
+  border-color: var(--charcoal);
+  color: var(--charcoal);
+}
+
+/* 當前頁 */
+.page-btn.active {
+  background: var(--charcoal);
+  color: var(--warm-white);
+  border-color: var(--charcoal);
+}
+
+/* 禁用 */
+.page-btn.disabled {
+  opacity: 0.3;
+  cursor: default;
+  pointer-events: none;
+}
+
+/* 手機優化 */
+@media (max-width: 768px) {
+  .pagination {
+    margin-top: 40px;
+    gap: 6px;
+  }
+
+  .page-btn {
+    min-width: 32px;
+    height: 32px;
+    font-size: 12px;
+  }
+}

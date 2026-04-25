@@ -1,0 +1,494 @@
+/* ==========================================================================
+   about.css
+   品牌故事頁專用樣式
+   ========================================================================== */
+
+.about-page {
+  background: var(--warm-white);
+}
+
+.about-hero {
+  display: grid;
+  grid-template-columns: 0.95fr 1.05fr;
+  min-height: 620px;
+  border-bottom: 0.5px solid var(--linen);
+}
+
+.about-hero-content {
+  background: var(--cream);
+  padding: 88px 60px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.about-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 54px;
+  font-weight: 300;
+  line-height: 1.18;
+  color: var(--charcoal);
+  margin-bottom: 28px;
+}
+
+.about-copy {
+  max-width: 520px;
+  color: var(--stone);
+  line-height: 2;
+  font-size: 14px;
+  font-weight: 300;
+}
+
+.about-hero-image {
+  background: var(--linen);
+  overflow: hidden;
+}
+
+.about-hero-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: saturate(0.84) contrast(0.97);
+}
+
+.about-section {
+  padding: 82px 50px;
+  display: grid;
+  grid-template-columns: 0.8fr 1.2fr;
+  gap: 64px;
+  border-bottom: 0.5px solid var(--linen);
+}
+
+.about-section-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 38px;
+  font-weight: 300;
+  line-height: 1.35;
+  color: var(--charcoal);
+}
+
+.about-text-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 38px;
+}
+
+.about-text-grid p {
+  color: var(--stone);
+  font-size: 14px;
+  line-height: 2;
+  font-weight: 300;
+}
+
+.about-values {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  border-bottom: 0.5px solid var(--linen);
+}
+
+.about-value-card {
+  padding: 50px 40px;
+  border-right: 0.5px solid var(--linen);
+}
+
+.about-value-card:last-child {
+  border-right: none;
+}
+
+.about-value-card span {
+  display: block;
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 24px;
+  color: var(--stone);
+  margin-bottom: 22px;
+}
+
+.about-value-card h3 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 24px;
+  font-weight: 400;
+  color: var(--charcoal);
+  margin-bottom: 12px;
+}
+
+.about-value-card p {
+  color: var(--stone);
+  font-size: 13px;
+  line-height: 1.9;
+  font-weight: 300;
+}
+
+.about-cta {
+  padding: 72px 50px;
+  background: var(--cream);
+  text-align: center;
+}
+
+.about-cta-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 36px;
+  font-weight: 300;
+  color: var(--charcoal);
+  margin-bottom: 24px;
+}
+
+.about-cta-link {
+  display: inline-flex;
+  padding: 14px 32px;
+  background: var(--charcoal);
+  color: var(--warm-white);
+  font-size: 12px;
+  letter-spacing: 0.14em;
+  transition: background 0.25s;
+}
+
+.about-cta-link:hover {
+  background: var(--stone);
+}
+
+@media (min-width: 769px) and (max-width: 1024px) {
+  .about-hero {
+    grid-template-columns: 1fr;
+    min-height: auto;
+  }
+
+  .about-hero-content {
+    padding: 70px 40px;
+    text-align: center;
+    align-items: center;
+  }
+
+  .about-title {
+    font-size: 46px;
+  }
+
+  .about-hero-image {
+    height: 360px;
+  }
+
+  .about-section {
+    grid-template-columns: 1fr;
+    gap: 34px;
+    padding: 64px 34px;
+  }
+
+  .about-values {
+    grid-template-columns: 1fr;
+  }
+
+  .about-value-card {
+    border-right: none;
+    border-bottom: 0.5px solid var(--linen);
+  }
+
+  .about-value-card:last-child {
+    border-bottom: none;
+  }
+}
+
+@media (max-width: 768px) {
+  .about-hero {
+    grid-template-columns: 1fr;
+    min-height: auto;
+  }
+
+  .about-hero-content {
+    padding: 54px 24px;
+    text-align: center;
+    align-items: center;
+  }
+
+  .about-title {
+    font-size: 36px;
+  }
+
+  .about-copy {
+    max-width: 100%;
+  }
+
+  .about-hero-image {
+    height: 280px;
+  }
+
+  .about-section {
+    grid-template-columns: 1fr;
+    gap: 28px;
+    padding: 48px 20px;
+  }
+
+  .about-section-title {
+    font-size: 30px;
+  }
+
+  .about-text-grid {
+    grid-template-columns: 1fr;
+    gap: 22px;
+  }
+
+  .about-values {
+    grid-template-columns: 1fr;
+  }
+
+  .about-value-card {
+    padding: 38px 24px;
+    border-right: none;
+    border-bottom: 0.5px solid var(--linen);
+  }
+
+  .about-value-card:last-child {
+    border-bottom: none;
+  }
+
+  .about-cta {
+    padding: 52px 20px;
+  }
+
+  .about-cta-title {
+    font-size: 30px;
+  }
+
+  .about-cta-link {
+    width: 100%;
+    justify-content: center;
+  }
+}
+
+/* ==========================================================================
+   Responsive Refinement
+   自然適應：平板 / 手機細節調整
+   ========================================================================== */
+
+@media (min-width: 769px) and (max-width: 1180px) {
+  .about-hero {
+    grid-template-columns: 1fr;
+    min-height: auto;
+  }
+
+  .about-hero-content {
+    padding: 72px 44px;
+    text-align: left;
+    align-items: flex-start;
+  }
+
+  .about-title {
+    font-size: clamp(42px, 7vw, 52px);
+    max-width: 720px;
+  }
+
+  .about-copy {
+    max-width: 620px;
+  }
+
+  .about-hero-image {
+    height: 400px;
+  }
+
+  .about-section {
+    grid-template-columns: 1fr;
+    gap: 34px;
+    padding: 64px 34px;
+  }
+
+  .about-text-grid {
+    gap: 28px;
+  }
+
+  .about-values {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .about-value-card {
+    padding: 42px 28px;
+  }
+}
+
+@media (max-width: 768px) {
+  .about-hero {
+    grid-template-columns: 1fr;
+    min-height: auto;
+  }
+
+  .about-hero-content {
+    padding: 52px 22px 44px;
+    text-align: left;
+    align-items: flex-start;
+  }
+
+  .about-title {
+    font-size: clamp(34px, 11vw, 40px);
+    margin-bottom: 22px;
+  }
+
+  .about-copy {
+    max-width: 100%;
+    font-size: 13px;
+    line-height: 1.95;
+  }
+
+  .about-hero-image {
+    height: 300px;
+  }
+
+  .about-section {
+    grid-template-columns: 1fr;
+    gap: 28px;
+    padding: 46px 20px;
+  }
+
+  .about-section-title {
+    font-size: 30px;
+  }
+
+  .about-text-grid {
+    grid-template-columns: 1fr;
+    gap: 22px;
+  }
+
+  .about-values {
+    grid-template-columns: 1fr;
+  }
+
+  .about-value-card {
+    padding: 36px 22px;
+    border-right: none;
+    border-bottom: 0.5px solid var(--linen);
+  }
+
+  .about-value-card:last-child {
+    border-bottom: none;
+  }
+
+  .about-cta {
+    padding: 50px 20px;
+  }
+
+  .about-cta-title {
+    font-size: 30px;
+  }
+
+  .about-cta-link {
+    width: 100%;
+    justify-content: center;
+  }
+}
+
+@media (max-width: 430px) {
+  .about-hero-content {
+    padding: 46px 18px 40px;
+  }
+
+  .about-hero-image {
+    height: 260px;
+  }
+
+  .about-section {
+    padding: 40px 18px;
+  }
+}
+
+/* ==========================================================================
+   Mobile RWD Density Fix
+   手機版資訊密度修正：商品卡兩欄 / 推薦卡縮小
+   ========================================================================== */
+
+@media (max-width: 768px) {
+  .product-grid,
+  .product-section .product-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 12px;
+  }
+
+  .product-card-img {
+    aspect-ratio: 4 / 3.8;
+  }
+
+  .product-card-body {
+    padding: 14px 12px 16px;
+  }
+
+  .product-card-name {
+    font-size: 15px;
+    line-height: 1.35;
+  }
+
+  .product-card-sub {
+    font-size: 10px;
+    line-height: 1.5;
+    margin-bottom: 10px;
+  }
+
+  .product-card-footer {
+    align-items: flex-end;
+    gap: 8px;
+  }
+
+  .product-price {
+    font-size: 15px;
+  }
+
+  .product-price-sub {
+    font-size: 9px;
+  }
+
+  .add-btn {
+    width: 28px;
+    height: 28px;
+    font-size: 15px;
+    flex-shrink: 0;
+  }
+
+  .features {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .feature-item {
+    padding: 24px 18px;
+  }
+}
+
+/* 很窄的手機也維持兩欄，但再壓縮 */
+@media (max-width: 430px) {
+  .product-grid,
+  .product-section .product-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 10px;
+  }
+
+  .product-card-img {
+    aspect-ratio: 4 / 3.5;
+  }
+
+  .product-card-body {
+    padding: 12px 10px 14px;
+  }
+
+  .product-card-name {
+    font-size: 14px;
+  }
+
+  .product-card-sub {
+    font-size: 9px;
+  }
+
+  .product-price {
+    font-size: 14px;
+  }
+
+  .add-btn {
+    width: 26px;
+    height: 26px;
+  }
+}
+
+/* product-detail 推薦商品手機橫滑密度修正 */
+@media (max-width: 768px) {
+  .recommend-track .product-card {
+    min-width: 46%;
+  }
+}
+
+@media (max-width: 430px) {
+  .recommend-track .product-card {
+    min-width: 48%;
+  }
+}
