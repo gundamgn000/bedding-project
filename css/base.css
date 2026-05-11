@@ -412,3 +412,212 @@ ul {
     grid-template-columns: 1fr;
   }
 }
+
+/* =========================================================
+   RWD FIX — Header / Navbar / Mobile Drawer
+   文具版：平板與手機 Navbar 適應性修正
+========================================================= */
+
+@media (min-width: 769px) and (max-width: 1024px) {
+  .header-container {
+    height: 58px;
+    padding: 0 16px;
+  }
+
+  .logo {
+    font-size: 1.1rem;
+  }
+
+  .menu-toggle {
+    display: flex;
+  }
+
+  .nav-menu,
+  .nav-icons {
+    display: none;
+  }
+
+  .mobile-drawer {
+    display: block;
+    position: absolute;
+    inset: auto;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    background: rgba(251, 250, 246, 0.98);
+    border-top: 1px solid var(--color-line);
+    border-bottom: 1px solid var(--color-line);
+    box-shadow: 0 18px 36px rgba(43, 43, 43, 0.08);
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-8px);
+    transition:
+      opacity 0.26s var(--ease-out),
+      visibility 0.26s var(--ease-out),
+      transform 0.26s var(--ease-out);
+    z-index: 999;
+  }
+
+  .mobile-drawer.active {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+  }
+
+  .mobile-drawer-inner {
+    padding: 12px 16px 16px;
+    gap: 0;
+  }
+
+  .drawer-link,
+  .drawer-dropdown-toggle {
+    min-height: 44px;
+    padding: 12px 0;
+    font-size: 14px;
+    border-bottom: 1px solid var(--color-line);
+  }
+
+  .drawer-submenu {
+    display: none;
+    padding: 6px 0 8px 14px;
+  }
+
+  .drawer-submenu.active {
+    display: flex;
+  }
+
+  .drawer-sublink {
+    padding: 8px 0;
+    font-size: 13px;
+  }
+
+  .mobile-drawer-icons {
+    padding-top: 14px;
+    margin-top: 0;
+    gap: 8px;
+  }
+
+  .mobile-drawer-icons a {
+    font-size: 13px;
+  }
+}
+
+@media (max-width: 768px) {
+  .header-container {
+    height: 56px;
+    padding: 0 14px;
+  }
+
+  .logo {
+    font-size: 1rem;
+  }
+
+  .menu-toggle {
+    display: flex;
+    width: 40px;
+    height: 40px;
+  }
+
+  .nav-menu,
+  .nav-icons {
+    display: none;
+  }
+
+  .mobile-drawer {
+    display: block;
+    position: absolute;
+    inset: auto;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    background: rgba(251, 250, 246, 0.98);
+    border-top: 1px solid var(--color-line);
+    border-bottom: 1px solid var(--color-line);
+    box-shadow: 0 18px 36px rgba(43, 43, 43, 0.08);
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-8px);
+    transition:
+      opacity 0.26s var(--ease-out),
+      visibility 0.26s var(--ease-out),
+      transform 0.26s var(--ease-out);
+    z-index: 999;
+  }
+
+  .mobile-drawer.active {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+  }
+
+  .mobile-drawer-inner {
+    padding: 12px 16px 16px;
+    gap: 0;
+  }
+
+  .drawer-link,
+  .drawer-dropdown-toggle {
+    min-height: 43px;
+    padding: 11px 0;
+    font-size: 14px;
+    border-bottom: 1px solid var(--color-line);
+  }
+
+  .drawer-submenu {
+    display: none;
+    padding: 6px 0 8px 14px;
+  }
+
+  .drawer-submenu.active {
+    display: flex;
+  }
+
+  .drawer-sublink {
+    padding: 8px 0;
+    font-size: 13px;
+  }
+
+  .mobile-drawer-icons {
+    padding-top: 14px;
+    margin-top: 0;
+    gap: 8px;
+  }
+
+  .mobile-drawer-icons a {
+    font-size: 13px;
+  }
+}
+
+@media (max-width: 480px) {
+  .header-container {
+    padding: 0 12px;
+  }
+
+  .logo {
+    font-size: 0.95rem;
+  }
+}
+
+@media (max-width: 1024px) {
+    .logo img {
+        height: 28px;
+    }
+}
+
+@media (max-width: 768px) {
+    .logo img {
+        height: 24px;
+    }
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+}
+
+.logo img {
+    height: 32px;
+    width: auto;
+    object-fit: contain;
+    display: block;
+}
