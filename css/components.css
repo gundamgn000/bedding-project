@@ -134,3 +134,122 @@
     grid-template-columns: 1fr;
   }
 }
+
+
+/* ==========================================================================
+   Client-confirmed product card content
+   僅保留分類、商品名稱與價格，維持原本直式卡片風格
+   ========================================================================== */
+
+.product-card-category {
+  margin-bottom: 7px;
+  color: var(--stone);
+  font-size: 9px;
+  font-weight: 400;
+  letter-spacing: 0.16em;
+  line-height: 1.4;
+  text-transform: uppercase;
+}
+
+.product-card-body {
+  display: flex;
+  flex-direction: column;
+}
+
+.product-card-footer {
+  margin-top: 14px;
+  padding-top: 14px;
+  border-top: 0.5px solid var(--linen);
+}
+
+.product-card-footer > div {
+  min-width: 0;
+}
+
+@media (max-width: 768px) {
+  .product-card-category {
+    margin-bottom: 5px;
+    font-size: 8px;
+  }
+
+  .product-card-footer {
+    margin-top: 10px;
+    padding-top: 10px;
+  }
+}
+
+
+/* ==========================================================================
+   Product Card Size Refinement
+   商品圖改為正方形，卡片整體縮小並保留原版型設計語言
+   ========================================================================== */
+
+.product-card-img {
+  aspect-ratio: 1 / 1;
+}
+
+.product-card-body {
+  padding: 14px 16px 16px;
+}
+
+.product-card-name {
+  font-size: 16px;
+}
+
+.product-card-footer {
+  margin-top: 10px;
+  padding-top: 10px;
+}
+
+.product-price {
+  font-size: 16px;
+}
+
+.add-btn {
+  width: 30px;
+  height: 30px;
+  font-size: 16px;
+}
+
+@media (min-width: 1181px) {
+  .product-grid {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 14px;
+  }
+}
+
+@media (min-width: 769px) and (max-width: 1180px) {
+  .product-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 14px;
+  }
+}
+
+@media (max-width: 768px) {
+  .product-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 12px;
+  }
+
+  .product-card-img {
+    aspect-ratio: 1 / 1;
+  }
+
+  .product-card-body {
+    padding: 12px;
+  }
+
+  .product-card-name {
+    font-size: 15px;
+  }
+
+  .product-price {
+    font-size: 14px;
+  }
+
+  .add-btn {
+    width: 28px;
+    height: 28px;
+    font-size: 15px;
+  }
+}

@@ -600,7 +600,6 @@
 
 /* ==========================================================================
    Mobile RWD Density Fix
-   手機版資訊密度修正：商品卡兩欄 / 推薦卡縮小
    ========================================================================== */
 
 @media (max-width: 768px) {
@@ -658,7 +657,6 @@
   }
 }
 
-/* 很窄的手機也維持兩欄，但再壓縮 */
 @media (max-width: 430px) {
   .product-grid,
   .product-section .product-grid {
@@ -692,7 +690,7 @@
   }
 }
 
-/* product-detail 推薦商品手機橫滑密度修正 */
+/* product-detail  */
 @media (max-width: 768px) {
   .recommend-track .product-card {
     min-width: 46%;
@@ -710,7 +708,6 @@
    修正 product-detail：手機推薦商品改兩欄、平板維持自然比例
    ========================================================================== */
 
-/* 平板：商品詳情維持單欄，但推薦商品維持輪播感 */
 @media (min-width: 769px) and (max-width: 1180px) {
   .product-detail-page {
     padding: 38px 34px 72px;
@@ -777,7 +774,6 @@
   }
 }
 
-/* 手機：推薦商品不要橫向一張一張滑，改成自然兩欄 */
 @media (max-width: 768px) {
   .product-detail-page {
     padding: 26px 18px 54px;
@@ -922,7 +918,6 @@
   }
 }
 
-/* 極窄手機：仍維持兩欄，但再收斂一點 */
 @media (max-width: 430px) {
   .product-detail-page {
     padding: 24px 16px 50px;
@@ -964,7 +959,6 @@
 
 /* ==========================================================================
    Final Mobile Recommend Carousel Override
-   手機版推薦商品：恢復橫向滑動，不再兩欄直列
    ========================================================================== */
 
 @media (max-width: 768px) {
@@ -1060,4 +1054,247 @@
 .thumb-image.active {
   outline: 1px solid var(--stone);
   outline-offset: -1px;
+}
+
+
+/* ==========================================================================
+   Client-confirmed product image behavior
+   ========================================================================== */
+
+.product-main-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  object-position: center;
+  background: var(--linen);
+  transform: none;
+}
+
+.product-main-image:hover img {
+  transform: none;
+}
+
+.product-sub-images img {
+  object-fit: cover;
+}
+
+/* 商品規格圖片切換 */
+.product-variants {
+  margin-bottom: 28px;
+}
+
+.variant-label {
+  margin-bottom: 12px;
+  color: var(--stone);
+  font-size: 11px;
+  letter-spacing: 0.14em;
+}
+
+.variant-options {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.variant-btn {
+  min-width: 82px;
+  padding: 10px 16px;
+  border: 0.5px solid var(--sand);
+  border-radius: 2px;
+  background: transparent;
+  color: var(--stone);
+  font-family: 'Zen Kaku Gothic New', sans-serif;
+  font-size: 11px;
+  letter-spacing: 0.08em;
+  transition: background 0.2s, border-color 0.2s, color 0.2s;
+}
+
+.variant-btn:hover {
+  border-color: var(--stone);
+  color: var(--charcoal);
+}
+
+.variant-btn.active {
+  border-color: var(--charcoal);
+  background: var(--charcoal);
+  color: var(--warm-white);
+}
+
+@media (max-width: 768px) {
+  .product-variants {
+    margin-bottom: 24px;
+  }
+
+  .variant-btn {
+    flex: 1 1 calc(33.333% - 8px);
+    min-width: 0;
+    padding: 10px 8px;
+  }
+}
+
+
+/* ==========================================================================
+   Final Full-image Display
+   ========================================================================== */
+
+.product-main-image {
+  aspect-ratio: 1 / 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--linen);
+}
+
+.product-main-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain !important;
+  object-position: center;
+  background: var(--linen);
+  transform: none !important;
+}
+
+.product-main-image:hover img {
+  transform: none !important;
+}
+
+@media (max-width: 768px) {
+  .product-main-image {
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    min-height: 0;
+  }
+
+  .product-main-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain !important;
+    object-position: center;
+  }
+}
+
+
+/* ==========================================================================
+   Recommend Section Size Refinement
+   ========================================================================== */
+
+.recommend-carousel {
+  max-width: 1180px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 44px;
+  padding-right: 44px;
+}
+
+.recommend-track {
+  gap: 14px;
+}
+
+.recommend-track .product-card {
+  min-width: 210px;
+}
+
+.recommend-track .product-card-img {
+  aspect-ratio: 1 / 1;
+}
+
+.recommend-track .product-card-body {
+  padding: 12px 14px 14px;
+}
+
+.recommend-track .product-card-name {
+  font-size: 15px;
+}
+
+.recommend-track .product-card-footer {
+  margin-top: 8px;
+  padding-top: 8px;
+}
+
+.recommend-track .product-price {
+  font-size: 14px;
+}
+
+.recommend-track .add-btn {
+  width: 28px;
+  height: 28px;
+  font-size: 15px;
+}
+
+@media (max-width: 1024px) {
+  .recommend-carousel {
+    max-width: 100%;
+    padding-left: 36px;
+    padding-right: 36px;
+  }
+
+  .recommend-track .product-card {
+    min-width: 200px;
+  }
+}
+
+@media (max-width: 768px) {
+  .recommend-carousel {
+    padding-left: 0;
+    padding-right: 0;
+  }
+
+  .recommend-track {
+    gap: 12px;
+  }
+
+  .recommend-track .product-card {
+    min-width: 72%;
+  }
+
+  .recommend-track .product-card-body {
+    padding: 11px 12px 13px;
+  }
+
+  .recommend-track .product-card-name {
+    font-size: 14px;
+  }
+
+  .recommend-track .product-price {
+    font-size: 13px;
+  }
+}
+
+
+/* ==========================================================================
+   Recommend Product Card Size Refinement
+   ========================================================================== */
+
+@media (min-width: 1025px) {
+  .recommend-track .product-card {
+    min-width: 480px;
+    flex: 0 0 480px;
+  }
+
+  .recommend-track .product-card-img {
+    aspect-ratio: 1 / 1;
+  }
+
+  .recommend-track .product-card-body {
+    padding: 12px 14px 14px;
+  }
+
+  .recommend-track .product-card-name {
+    font-size: 15px;
+  }
+
+  .recommend-track .product-card-footer {
+    margin-top: 8px;
+    padding-top: 8px;
+  }
+
+  .recommend-track .product-price {
+    font-size: 14px;
+  }
+
+  .recommend-track .add-btn {
+    width: 28px;
+    height: 28px;
+    font-size: 15px;
+  }
 }

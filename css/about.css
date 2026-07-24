@@ -388,7 +388,6 @@
 
 /* ==========================================================================
    Mobile RWD Density Fix
-   手機版資訊密度修正：商品卡兩欄 / 推薦卡縮小
    ========================================================================== */
 
 @media (max-width: 768px) {
@@ -446,7 +445,6 @@
   }
 }
 
-/* 很窄的手機也維持兩欄，但再壓縮 */
 @media (max-width: 430px) {
   .product-grid,
   .product-section .product-grid {
@@ -480,7 +478,7 @@
   }
 }
 
-/* product-detail 推薦商品手機橫滑密度修正 */
+
 @media (max-width: 768px) {
   .recommend-track .product-card {
     min-width: 46%;

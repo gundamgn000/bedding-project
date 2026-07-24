@@ -1,7 +1,6 @@
 /* ==========================================================================
    MIAN 眠 — Bedding Brand
    base.css
-   共用：變數 / Reset / Navbar / Buttons / Footer / Mobile Drawer
    ========================================================================== */
 
 @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Zen+Kaku+Gothic+New:wght@300;400;500&display=swap');
@@ -644,4 +643,75 @@ ul {
     width: auto;
     object-fit: contain;
     display: block;
+}
+
+
+/* ==========================================================================
+   Theme System
+   預設：暖米色系 / 替代：霧藍色系
+   ========================================================================== */
+
+:root[data-theme="mist"] {
+  --cream:      #F1F5F6;
+  --linen:      #DDE6E8;
+  --sand:       #BFCED1;
+  --stone:      #7A9198;
+  --charcoal:   #26363D;
+  --mist:       #5F7D88;
+  --warm-white: #FAFCFC;
+}
+
+.theme-switcher {
+  position: fixed;
+  right: 18px;
+  bottom: 18px;
+  z-index: 999;
+  display: flex;
+  gap: 4px;
+  padding: 4px;
+  border: 0.5px solid var(--sand);
+  border-radius: 2px;
+  background: rgba(253, 252, 250, 0.94);
+  box-shadow: 0 8px 24px rgba(46, 42, 38, 0.10);
+  backdrop-filter: blur(8px);
+}
+
+:root[data-theme="mist"] .theme-switcher {
+  background: rgba(250, 252, 252, 0.94);
+}
+
+.theme-switcher button {
+  min-width: 46px;
+  padding: 8px 10px;
+  border: 0;
+  border-radius: 1px;
+  background: transparent;
+  color: var(--stone);
+  font-family: 'Zen Kaku Gothic New', sans-serif;
+  font-size: 10px;
+  letter-spacing: 0.08em;
+  cursor: pointer;
+  transition: background 0.2s, color 0.2s;
+}
+
+.theme-switcher button:hover {
+  color: var(--charcoal);
+}
+
+.theme-switcher button.is-active {
+  background: var(--charcoal);
+  color: var(--warm-white);
+}
+
+@media (max-width: 768px) {
+  .theme-switcher {
+    right: 12px;
+    bottom: 12px;
+  }
+
+  .theme-switcher button {
+    min-width: 42px;
+    padding: 7px 8px;
+    font-size: 9px;
+  }
 }
