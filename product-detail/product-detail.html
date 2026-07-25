@@ -63,32 +63,31 @@
       
       <div class="product-detail-gallery">
         <div class="product-main-image">
-          <button class="gallery-nav gallery-nav-prev"
-                  type="button"
-                  aria-label="上一張商品圖片">&#10094;</button>
-
           <img id="mainProductImage"
               src="https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?auto=format&fit=crop&w=1000&q=80"
               alt="雲眠四件組">
-
-          <button class="gallery-nav gallery-nav-next"
-                  type="button"
-                  aria-label="下一張商品圖片">&#10095;</button>
         </div>
 
-        <div class="product-sub-images" aria-label="商品縮圖">
-          <img src="https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?auto=format&fit=crop&w=500&q=80"
-               data-full="https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?auto=format&fit=crop&w=1000&q=80"
-               alt="寢具主圖"
-               class="thumb-image active">
-          <img src="https://images.unsplash.com/photo-1631049307264-da0ec9d70304?auto=format&fit=crop&w=500&q=80"
-               data-full="https://images.unsplash.com/photo-1631049307264-da0ec9d70304?auto=format&fit=crop&w=1000&q=80"
-               alt="寢具細節"
-               class="thumb-image">
-          <img src="https://images.unsplash.com/photo-1540518614846-7eded433c457?auto=format&fit=crop&w=500&q=80"
-               data-full="https://images.unsplash.com/photo-1540518614846-7eded433c457?auto=format&fit=crop&w=1000&q=80"
-               alt="枕套細節"
-               class="thumb-image">
+        <div class="product-thumb-navigation">
+          <button class="thumb-nav-btn thumb-nav-prev"
+                  type="button"
+                  aria-label="上一張商品圖片">&#10094;</button>
+
+          <div class="product-sub-images" aria-label="商品縮圖">
+            <img src="https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?auto=format&fit=crop&w=1000&q=80"
+                 alt="寢具主圖"
+                 class="thumb-image active">
+            <img src="https://images.unsplash.com/photo-1631049307264-da0ec9d70304?auto=format&fit=crop&w=500&q=80"
+                 alt="寢具細節"
+                 class="thumb-image">
+            <img src="https://images.unsplash.com/photo-1540518614846-7eded433c457?auto=format&fit=crop&w=500&q=80"
+                 alt="枕套細節"
+                 class="thumb-image">
+          </div>
+
+          <button class="thumb-nav-btn thumb-nav-next"
+                  type="button"
+                  aria-label="下一張商品圖片">&#10095;</button>
         </div>
       </div>
       
@@ -322,43 +321,35 @@
     // ── 商品圖片切換 ──
     const mainProductImage = document.getElementById('mainProductImage');
     const thumbImages = Array.from(document.querySelectorAll('.thumb-image'));
-    const galleryPrevBtn = document.querySelector('.gallery-nav-prev');
-    const galleryNextBtn = document.querySelector('.gallery-nav-next');
-    let currentGalleryIndex = 0;
+    const thumbPrevBtn = document.querySelector('.thumb-nav-prev');
+    const thumbNextBtn = document.querySelector('.thumb-nav-next');
+    let currentThumbIndex = 0;
 
-    function getImageKey(url) {
-      try {
-        return new URL(url, window.location.href).pathname;
-      } catch {
-        return url;
-      }
-    }
-
-    function showGalleryImage(index) {
+    function showProductImage(index) {
       if (!thumbImages.length) return;
 
-      currentGalleryIndex =
+      currentThumbIndex =
         (index + thumbImages.length) % thumbImages.length;
 
-      const activeThumb = thumbImages[currentGalleryIndex];
-      mainProductImage.src = activeThumb.dataset.full || activeThumb.src;
+      const activeThumb = thumbImages[currentThumbIndex];
+      mainProductImage.src = activeThumb.src;
       mainProductImage.alt = activeThumb.alt;
 
       thumbImages.forEach((thumb, thumbIndex) => {
-        thumb.classList.toggle('active', thumbIndex === currentGalleryIndex);
+        thumb.classList.toggle('active', thumbIndex === currentThumbIndex);
       });
     }
 
     thumbImages.forEach((thumb, index) => {
-      thumb.addEventListener('click', () => showGalleryImage(index));
+      thumb.addEventListener('click', () => showProductImage(index));
     });
 
-    galleryPrevBtn?.addEventListener('click', () => {
-      showGalleryImage(currentGalleryIndex - 1);
+    thumbPrevBtn?.addEventListener('click', () => {
+      showProductImage(currentThumbIndex - 1);
     });
 
-    galleryNextBtn?.addEventListener('click', () => {
-      showGalleryImage(currentGalleryIndex + 1);
+    thumbNextBtn?.addEventListener('click', () => {
+      showProductImage(currentThumbIndex + 1);
     });
 
 
@@ -372,12 +363,15 @@
           mainProductImage.src = image;
 
           const matchedIndex = thumbImages.findIndex((thumb) => {
-            const thumbImage = thumb.dataset.full || thumb.src;
-            return getImageKey(thumbImage) === getImageKey(image);
+            try {
+              return new URL(thumb.src).pathname === new URL(image).pathname;
+            } catch {
+              return thumb.src === image;
+            }
           });
 
           if (matchedIndex >= 0) {
-            currentGalleryIndex = matchedIndex;
+            currentThumbIndex = matchedIndex;
             thumbImages.forEach((thumb, index) => {
               thumb.classList.toggle('active', index === matchedIndex);
             });
