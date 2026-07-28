@@ -1407,3 +1407,530 @@
     font-size: 14px;
   }
 }
+
+/* ==========================================================================
+   Client Revision — Product Detail Final Interaction
+   ========================================================================== */
+
+/* 左側圖片固定；右側資訊正常向下閱讀 */
+@media (min-width: 1181px) {
+  .product-detail-layout {
+    grid-template-columns: minmax(420px, 0.82fr) minmax(420px, 1.18fr);
+    gap: 50px;
+    align-items: start;
+  }
+
+  .product-detail-gallery {
+    position: sticky;
+    top: 96px;
+    align-self: start;
+    width: 100%;
+    max-width: 580px;
+  }
+
+  .product-detail-info {
+    position: static;
+  }
+}
+
+/* 主圖按鈕化，但保留原本商品圖外觀 */
+.product-main-image {
+  position: relative;
+  width: 100%;
+  padding: 0;
+  border: 0;
+  font: inherit;
+  cursor: zoom-in;
+}
+
+.product-main-image:focus-visible {
+  outline: 2px solid var(--stone);
+  outline-offset: 3px;
+}
+
+.image-zoom-hint {
+  position: absolute;
+  right: 14px;
+  bottom: 14px;
+  padding: 7px 10px;
+  border: 0.5px solid rgba(46, 42, 38, 0.12);
+  background: rgba(253, 252, 250, 0.88);
+  color: var(--charcoal);
+  font-size: 10px;
+  letter-spacing: 0.1em;
+  pointer-events: none;
+  backdrop-filter: blur(6px);
+}
+
+/* 縮圖永遠維持單一橫列；超過可視數量時由左右鍵導覽 */
+.product-thumb-navigation {
+  display: grid;
+  grid-template-columns: 36px minmax(0, 1fr) 36px;
+  gap: 10px;
+  align-items: center;
+  width: 100%;
+}
+
+.product-thumb-navigation .product-sub-images {
+  display: flex;
+  grid-template-columns: none;
+  gap: 10px;
+  width: 100%;
+  min-width: 0;
+  overflow-x: auto;
+  overflow-y: hidden;
+  scroll-behavior: smooth;
+  scrollbar-width: none;
+  overscroll-behavior-inline: contain;
+}
+
+.product-thumb-navigation .product-sub-images::-webkit-scrollbar {
+  display: none;
+}
+
+.product-thumb-navigation .thumb-image {
+  flex: 0 0 calc((100% - 20px) / 3);
+  width: calc((100% - 20px) / 3);
+  min-width: 0;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+}
+
+.thumb-nav-btn:disabled,
+.carousel-btn:disabled {
+  opacity: 0.28;
+  cursor: default;
+  pointer-events: none;
+}
+
+/* 推薦商品：固定三張可視，卡片尺寸與首頁精選區接近 */
+.recommend-carousel {
+  position: relative;
+  max-width: 1180px;
+  margin-inline: auto;
+  padding-inline: 44px;
+  overflow: visible;
+}
+
+.recommend-viewport {
+  width: 100%;
+  overflow: hidden;
+}
+
+.recommend-track {
+  display: flex;
+  gap: 20px;
+  width: max-content;
+  max-width: none;
+  overflow: visible;
+  transform: translateX(0);
+  transition: transform 0.4s ease;
+}
+
+.recommend-track .product-card {
+  flex: 0 0 calc((min(1180px, 100vw - 188px) - 40px) / 3);
+  width: calc((min(1180px, 100vw - 188px) - 40px) / 3);
+  min-width: 0;
+}
+
+.recommend-track .product-card-img {
+  aspect-ratio: 1 / 1;
+}
+
+.carousel-btn {
+  top: 42%;
+}
+
+.carousel-btn-prev {
+  left: 2px;
+}
+
+.carousel-btn-next {
+  right: 2px;
+}
+
+/* 商品圖片 Lightbox */
+body.lightbox-open {
+  overflow: hidden;
+}
+
+.product-lightbox {
+  position: fixed;
+  inset: 0;
+  z-index: 2000;
+  display: grid;
+  place-items: center;
+  padding: 24px;
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transition: opacity 0.22s ease, visibility 0.22s ease;
+}
+
+.product-lightbox.active {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+}
+
+.lightbox-backdrop {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  border: 0;
+  background: rgba(24, 22, 20, 0.86);
+  cursor: zoom-out;
+}
+
+.lightbox-dialog {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  place-items: center;
+  width: min(1120px, 92vw);
+  height: min(820px, 88vh);
+}
+
+.lightbox-dialog img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  filter: none;
+}
+
+.lightbox-close,
+.lightbox-nav {
+  position: absolute;
+  z-index: 2;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border: 0.5px solid rgba(255, 255, 255, 0.35);
+  border-radius: 50%;
+  background: rgba(20, 18, 17, 0.58);
+  color: #fff;
+  cursor: pointer;
+  backdrop-filter: blur(6px);
+}
+
+.lightbox-close {
+  top: 0;
+  right: 0;
+  width: 42px;
+  height: 42px;
+  font-size: 28px;
+  line-height: 1;
+}
+
+.lightbox-nav {
+  top: 50%;
+  width: 46px;
+  height: 46px;
+  transform: translateY(-50%);
+  font-size: 32px;
+}
+
+.lightbox-prev {
+  left: 0;
+}
+
+.lightbox-next {
+  right: 0;
+}
+
+@media (min-width: 769px) and (max-width: 1180px) {
+  .recommend-track .product-card {
+    flex: 0 0 calc((100vw - 176px - 18px) / 2);
+    width: calc((100vw - 176px - 18px) / 2);
+  }
+}
+
+@media (max-width: 768px) {
+  .product-main-image {
+    aspect-ratio: 4 / 3;
+  }
+
+  .image-zoom-hint {
+    right: 10px;
+    bottom: 10px;
+    padding: 6px 8px;
+    font-size: 9px;
+  }
+
+  .product-thumb-navigation {
+    grid-template-columns: 30px minmax(0, 1fr) 30px;
+    gap: 7px;
+  }
+
+  .product-thumb-navigation .product-sub-images {
+    display: flex;
+    gap: 7px;
+  }
+
+  .product-thumb-navigation .thumb-image {
+    flex-basis: calc((100% - 14px) / 3);
+    width: calc((100% - 14px) / 3);
+    aspect-ratio: 1 / 1;
+  }
+
+  .recommend-carousel {
+    padding-inline: 0;
+    overflow: visible;
+  }
+
+  .recommend-viewport {
+    overflow-x: auto;
+    overflow-y: hidden;
+    scrollbar-width: none;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .recommend-viewport::-webkit-scrollbar {
+    display: none;
+  }
+
+  .recommend-track {
+    width: max-content;
+    gap: 12px;
+    transform: none !important;
+  }
+
+  .recommend-track .product-card {
+    flex: 0 0 calc((100vw - 48px) / 2);
+    width: calc((100vw - 48px) / 2);
+    scroll-snap-align: start;
+  }
+
+  .carousel-btn {
+    display: none !important;
+  }
+
+  .product-lightbox {
+    padding: 14px;
+  }
+
+  .lightbox-dialog {
+    width: 100%;
+    height: 86vh;
+  }
+
+  .lightbox-close {
+    top: 4px;
+    right: 4px;
+  }
+
+  .lightbox-nav {
+    width: 40px;
+    height: 40px;
+    font-size: 28px;
+  }
+}
+
+/* ==========================================================================
+   Client Revision 2 — Recommend Carousel Width / Mobile Fix
+   ========================================================================== */
+
+/* 桌機：只拉寬展示外框，不放大商品卡內容 */
+@media (min-width: 1181px) {
+  .recommend-carousel {
+    width: calc(100% + 96px);
+    max-width: none;
+    margin-left: -48px;
+    margin-right: -48px;
+    padding-left: 48px;
+    padding-right: 48px;
+  }
+
+  .recommend-viewport {
+    width: 100%;
+    overflow: hidden;
+  }
+
+  .recommend-track {
+    width: 100%;
+    gap: 20px;
+  }
+
+  .recommend-track .product-card {
+    flex: 0 0 calc((100% - 40px) / 3);
+    width: calc((100% - 40px) / 3);
+    min-width: 0;
+  }
+
+  .carousel-btn-prev {
+    left: 4px;
+  }
+
+  .carousel-btn-next {
+    right: 4px;
+  }
+}
+
+/* 平板：一次完整顯示兩張 */
+@media (min-width: 769px) and (max-width: 1180px) {
+  .recommend-carousel {
+    width: calc(100% + 56px);
+    max-width: none;
+    margin-left: -28px;
+    margin-right: -28px;
+    padding-left: 42px;
+    padding-right: 42px;
+  }
+
+  .recommend-viewport {
+    width: 100%;
+    overflow: hidden;
+  }
+
+  .recommend-track {
+    width: 100%;
+    gap: 18px;
+  }
+
+  .recommend-track .product-card {
+    flex: 0 0 calc((100% - 18px) / 2);
+    width: calc((100% - 18px) / 2);
+    min-width: 0;
+  }
+}
+
+/* 手機：固定兩張卡在可視區內，保留橫向滑動 */
+@media (max-width: 768px) {
+  .recommend-carousel {
+    width: 100%;
+    max-width: 100%;
+    margin-left: 0;
+    margin-right: 0;
+    padding: 0;
+    overflow: hidden;
+  }
+
+  .recommend-viewport {
+    width: 100%;
+    max-width: 100%;
+    overflow-x: auto;
+    overflow-y: hidden;
+    scroll-snap-type: x mandatory;
+    scrollbar-width: none;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .recommend-viewport::-webkit-scrollbar {
+    display: none;
+  }
+
+  .recommend-track {
+    display: flex !important;
+    width: 100%;
+    max-width: 100%;
+    gap: 10px;
+    overflow: visible;
+    transform: none !important;
+  }
+
+  .recommend-track .product-card {
+    flex: 0 0 calc((100% - 10px) / 2) !important;
+    width: calc((100% - 10px) / 2) !important;
+    min-width: 0 !important;
+    max-width: none;
+    scroll-snap-align: start;
+  }
+
+  .recommend-track .product-card-img {
+    width: 100%;
+    height: auto;
+    aspect-ratio: 1 / 1 !important;
+  }
+
+  .recommend-track .product-card-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .recommend-track .product-card-body {
+    padding: 12px 10px 14px;
+  }
+
+  .recommend-track .product-card-name {
+    font-size: 13px;
+  }
+
+  .recommend-track .product-price {
+    font-size: 13px;
+  }
+}
+
+@media (max-width: 430px) {
+  .recommend-track {
+    gap: 8px;
+  }
+
+  .recommend-track .product-card {
+    flex-basis: calc((100% - 8px) / 2) !important;
+    width: calc((100% - 8px) / 2) !important;
+  }
+
+  .recommend-track .product-card-body {
+    padding: 10px 8px 12px;
+  }
+
+  .recommend-track .product-card-name {
+    font-size: 12px;
+  }
+
+  .recommend-track .product-price {
+    font-size: 12px;
+  }
+
+  .recommend-track .add-btn {
+    width: 24px;
+    height: 24px;
+  }
+}
+
+/* ==========================================================================
+   Client Revision 3 — Recommend cards match homepage featured products
+   ========================================================================== */
+
+@media (min-width: 1181px) {
+  .recommend-carousel {
+    width: min(100%, 1420px);
+    max-width: 1420px;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 42px;
+    padding-right: 42px;
+  }
+
+  .recommend-viewport {
+    width: 100%;
+    overflow: hidden;
+  }
+
+  .recommend-track {
+    width: 100%;
+    gap: 18px;
+  }
+
+  .recommend-track .product-card {
+    flex: 0 0 calc((100% - 36px) / 3);
+    width: calc((100% - 36px) / 3);
+    min-width: 0;
+  }
+
+  .recommend-track .product-card-img {
+    aspect-ratio: 4 / 3.8;
+  }
+
+  .carousel-btn-prev {
+    left: 2px;
+  }
+
+  .carousel-btn-next {
+    right: 2px;
+  }
+}
+

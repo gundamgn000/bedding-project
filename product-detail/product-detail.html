@@ -62,11 +62,12 @@
     <section class="product-detail-layout">
       
       <div class="product-detail-gallery">
-        <div class="product-main-image">
+        <button class="product-main-image" id="mainImageButton" type="button" aria-label="放大商品圖片">
           <img id="mainProductImage"
               src="https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?auto=format&fit=crop&w=1000&q=80"
               alt="雲眠四件組">
-        </div>
+          <span class="image-zoom-hint" aria-hidden="true">點擊放大</span>
+        </button>
 
         <div class="product-thumb-navigation">
           <button class="thumb-nav-btn thumb-nav-prev"
@@ -83,6 +84,24 @@
             <img src="https://images.unsplash.com/photo-1540518614846-7eded433c457?auto=format&fit=crop&w=500&q=80"
                  alt="枕套細節"
                  class="thumb-image">
+             <img src="https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?auto=format&fit=crop&w=1000&q=80"
+                 alt="寢具主圖"
+                 class="thumb-image active">
+            <img src="https://images.unsplash.com/photo-1631049307264-da0ec9d70304?auto=format&fit=crop&w=500&q=80"
+                 alt="寢具細節"
+                 class="thumb-image">
+            <img src="https://images.unsplash.com/photo-1540518614846-7eded433c457?auto=format&fit=crop&w=500&q=80"
+                 alt="枕套細節"
+                 class="thumb-image">
+             <img src="https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?auto=format&fit=crop&w=1000&q=80"
+                 alt="寢具主圖"
+                 class="thumb-image active">
+            <img src="https://images.unsplash.com/photo-1631049307264-da0ec9d70304?auto=format&fit=crop&w=500&q=80"
+                 alt="寢具細節"
+                 class="thumb-image">
+            <img src="https://images.unsplash.com/photo-1540518614846-7eded433c457?auto=format&fit=crop&w=500&q=80"
+                 alt="枕套細節"
+                 class="thumb-image">          
           </div>
 
           <button class="thumb-nav-btn thumb-nav-next"
@@ -147,6 +166,33 @@
             <span>保養方式</span>
             <p>建議冷水機洗、低溫烘乾，避免漂白劑</p>
           </div>
+          <span>內容物</span>
+            <p>被套 ×1、床包 ×1、枕套 ×2</p>
+          </div>
+          <div class="product-spec-item">
+            <span>材質</span>
+            <p>600TC 有機長絨棉</p>
+          </div>
+          <div class="product-spec-item">
+            <span>尺寸</span>
+            <p>標準雙人 / 加大雙人</p>
+          </div>
+          <div class="product-spec-item">
+            <span>保養方式</span>
+            <p>建議冷水機洗、低溫烘乾，避免漂白劑</p><span>內容物</span>
+            <p>被套 ×1、床包 ×1、枕套 ×2</p>
+          </div>
+          <div class="product-spec-item">
+            <span>材質</span>
+            <p>600TC 有機長絨棉</p>
+          </div>
+          <div class="product-spec-item">
+            <span>尺寸</span>
+            <p>標準雙人 / 加大雙人</p>
+          </div>
+          <div class="product-spec-item">
+            <span>保養方式</span>
+            <p>建議冷水機洗、低溫烘乾，避免漂白劑</p>
         </div>
       </article>
     </section>
@@ -174,7 +220,8 @@
   
         <button class="carousel-btn carousel-btn-prev">‹</button>
 
-        <div class="recommend-track">
+        <div class="recommend-viewport">
+          <div class="recommend-track">
           <a href="../product-detail/product-detail.html" class="product-card">
             <div class="product-card-img">
               <img src="https://images.unsplash.com/photo-1631049307264-da0ec9d70304?auto=format&fit=crop&w=800&q=80" alt="晨霧天絲被套">
@@ -266,6 +313,18 @@
 
   </main>
 
+
+  <!-- PRODUCT IMAGE LIGHTBOX -->
+  <div class="product-lightbox" id="productLightbox" aria-hidden="true">
+    <button class="lightbox-backdrop" type="button" aria-label="關閉放大圖片"></button>
+    <div class="lightbox-dialog" role="dialog" aria-modal="true" aria-label="商品圖片預覽">
+      <button class="lightbox-close" id="lightboxClose" type="button" aria-label="關閉">×</button>
+      <button class="lightbox-nav lightbox-prev" id="lightboxPrev" type="button" aria-label="上一張">‹</button>
+      <img id="lightboxImage" src="" alt="">
+      <button class="lightbox-nav lightbox-next" id="lightboxNext" type="button" aria-label="下一張">›</button>
+    </div>
+  </div>
+
   <!-- FOOTER -->
   <footer class="footer" id="footer">
     <div class="footer-grid">
@@ -318,14 +377,38 @@
       menuToggle.setAttribute('aria-expanded', isOpen);
     });
 
-    // ── 商品圖片切換 ──
+    // ── 商品圖片／縮圖列／放大預覽 ──
     const mainProductImage = document.getElementById('mainProductImage');
+    const mainImageButton = document.getElementById('mainImageButton');
+    const thumbStrip = document.querySelector('.product-sub-images');
     const thumbImages = Array.from(document.querySelectorAll('.thumb-image'));
     const thumbPrevBtn = document.querySelector('.thumb-nav-prev');
     const thumbNextBtn = document.querySelector('.thumb-nav-next');
+
+    const productLightbox = document.getElementById('productLightbox');
+    const lightboxImage = document.getElementById('lightboxImage');
+    const lightboxClose = document.getElementById('lightboxClose');
+    const lightboxPrev = document.getElementById('lightboxPrev');
+    const lightboxNext = document.getElementById('lightboxNext');
+    const lightboxBackdrop = productLightbox?.querySelector('.lightbox-backdrop');
+
     let currentThumbIndex = 0;
 
-    function showProductImage(index) {
+    function keepActiveThumbVisible(behavior = 'smooth') {
+      const activeThumb = thumbImages[currentThumbIndex];
+      if (!activeThumb || !thumbStrip) return;
+
+      const targetLeft =
+        activeThumb.offsetLeft -
+        (thumbStrip.clientWidth - activeThumb.offsetWidth) / 2;
+
+      thumbStrip.scrollTo({
+        left: Math.max(0, targetLeft),
+        behavior
+      });
+    }
+
+    function showProductImage(index, options = {}) {
       if (!thumbImages.length) return;
 
       currentThumbIndex =
@@ -337,11 +420,31 @@
 
       thumbImages.forEach((thumb, thumbIndex) => {
         thumb.classList.toggle('active', thumbIndex === currentThumbIndex);
+        thumb.setAttribute(
+          'aria-current',
+          thumbIndex === currentThumbIndex ? 'true' : 'false'
+        );
       });
+
+      keepActiveThumbVisible(options.instant ? 'auto' : 'smooth');
+
+      if (productLightbox?.classList.contains('active')) {
+        lightboxImage.src = activeThumb.src;
+        lightboxImage.alt = activeThumb.alt;
+      }
     }
 
     thumbImages.forEach((thumb, index) => {
+      thumb.setAttribute('tabindex', '0');
+      thumb.setAttribute('role', 'button');
+
       thumb.addEventListener('click', () => showProductImage(index));
+      thumb.addEventListener('keydown', (event) => {
+        if (event.key === 'Enter' || event.key === ' ') {
+          event.preventDefault();
+          showProductImage(index);
+        }
+      });
     });
 
     thumbPrevBtn?.addEventListener('click', () => {
@@ -351,6 +454,47 @@
     thumbNextBtn?.addEventListener('click', () => {
       showProductImage(currentThumbIndex + 1);
     });
+
+    function openLightbox() {
+      if (!productLightbox) return;
+
+      lightboxImage.src = mainProductImage.src;
+      lightboxImage.alt = mainProductImage.alt;
+      productLightbox.classList.add('active');
+      productLightbox.setAttribute('aria-hidden', 'false');
+      document.body.classList.add('lightbox-open');
+      lightboxClose?.focus();
+    }
+
+    function closeLightbox() {
+      if (!productLightbox) return;
+
+      productLightbox.classList.remove('active');
+      productLightbox.setAttribute('aria-hidden', 'true');
+      document.body.classList.remove('lightbox-open');
+      mainImageButton?.focus();
+    }
+
+    mainImageButton?.addEventListener('click', openLightbox);
+    lightboxClose?.addEventListener('click', closeLightbox);
+    lightboxBackdrop?.addEventListener('click', closeLightbox);
+    lightboxPrev?.addEventListener('click', () => {
+      showProductImage(currentThumbIndex - 1);
+    });
+    lightboxNext?.addEventListener('click', () => {
+      showProductImage(currentThumbIndex + 1);
+    });
+
+    document.addEventListener('keydown', (event) => {
+      if (!productLightbox?.classList.contains('active')) return;
+
+      if (event.key === 'Escape') closeLightbox();
+      if (event.key === 'ArrowLeft') showProductImage(currentThumbIndex - 1);
+      if (event.key === 'ArrowRight') showProductImage(currentThumbIndex + 1);
+    });
+
+    showProductImage(0, { instant: true });
+
 
 
     // ── 商品規格切換主圖 ──
@@ -362,21 +506,18 @@
         if (image) {
           mainProductImage.src = image;
 
+          const normalizedImage = new URL(image, window.location.href).href;
           const matchedIndex = thumbImages.findIndex((thumb) => {
-            try {
-              return new URL(thumb.src).pathname === new URL(image).pathname;
-            } catch {
-              return thumb.src === image;
-            }
+            return new URL(thumb.src, window.location.href).href === normalizedImage;
           });
 
           if (matchedIndex >= 0) {
-            currentThumbIndex = matchedIndex;
-            thumbImages.forEach((thumb, index) => {
-              thumb.classList.toggle('active', index === matchedIndex);
-            });
+            showProductImage(matchedIndex);
           } else {
-            thumbImages.forEach((thumb) => thumb.classList.remove('active'));
+            thumbImages.forEach((thumb) => {
+              thumb.classList.remove('active');
+              thumb.setAttribute('aria-current', 'false');
+            });
           }
         }
 
@@ -385,62 +526,77 @@
       });
     });
 
-    // ── 推薦輪播 ──
+    // ── 推薦商品輪播 ──
     const slider = document.getElementById('recommendSlider');
 
-      if (slider) {
-        const track = slider.querySelector('.recommend-track');
-        const prevBtn = slider.querySelector('.carousel-btn-prev');
-        const nextBtn = slider.querySelector('.carousel-btn-next');
-        const cards = track.querySelectorAll('.product-card');
+    if (slider) {
+      const viewport = slider.querySelector('.recommend-viewport');
+      const track = slider.querySelector('.recommend-track');
+      const prevBtn = slider.querySelector('.carousel-btn-prev');
+      const nextBtn = slider.querySelector('.carousel-btn-next');
+      const cards = Array.from(track.querySelectorAll('.product-card'));
 
-        let currentIndex = 0;
-        const gap = 20;
-        const visibleCards = 3;
+      let currentIndex = 0;
 
-        function isMobileCarousel() {
-          return window.matchMedia('(max-width: 768px)').matches;
-        }
+      function isDesktopCarousel() {
+        return window.matchMedia('(min-width: 769px)').matches;
+      }
 
-        function getCardWidth() {
-          return cards[0] ? cards[0].offsetWidth : 0;
-        }
+      function getGap() {
+        const styles = window.getComputedStyle(track);
+        return parseFloat(styles.columnGap || styles.gap) || 0;
+      }
 
-        function updateCarousel() {
-          if (isMobileCarousel()) {
-            track.style.transform = 'none';
-            return;
-          }
+      function getStep() {
+        return cards[0] ? cards[0].getBoundingClientRect().width + getGap() : 0;
+      }
 
-          const cardWidth = getCardWidth();
-          track.style.transform =
-            `translateX(-${currentIndex * (cardWidth + gap)}px)`;
-        }
+      function getMaxOffset() {
+        return Math.max(0, track.scrollWidth - viewport.clientWidth);
+      }
 
-        nextBtn.addEventListener('click', () => {
-          if (isMobileCarousel()) return;
+      function getMaxIndex() {
+        const step = getStep();
+        return step > 0 ? Math.ceil(getMaxOffset() / step) : 0;
+      }
 
-          const maxIndex = Math.max(0, cards.length - visibleCards);
-          if (currentIndex < maxIndex) {
-            currentIndex++;
-            updateCarousel();
-          }
-        });
-
-        prevBtn.addEventListener('click', () => {
-          if (isMobileCarousel()) return;
-
-          if (currentIndex > 0) {
-            currentIndex--;
-            updateCarousel();
-          }
-        });
-
-        window.addEventListener('resize', () => {
+      function updateCarousel() {
+        if (!isDesktopCarousel()) {
           currentIndex = 0;
-          updateCarousel();
-        });
+          track.style.transform = 'none';
+          prevBtn.disabled = true;
+          nextBtn.disabled = true;
+          return;
+        }
+
+        const step = getStep();
+        const maxOffset = getMaxOffset();
+        const offset = Math.min(currentIndex * step, maxOffset);
+
+        track.style.transform = `translateX(-${offset}px)`;
+        prevBtn.disabled = offset <= 0;
+        nextBtn.disabled = offset >= maxOffset - 1;
+      }
+
+      nextBtn?.addEventListener('click', () => {
+        currentIndex = Math.min(currentIndex + 1, getMaxIndex());
+        updateCarousel();
+      });
+
+      prevBtn?.addEventListener('click', () => {
+        currentIndex = Math.max(currentIndex - 1, 0);
+        updateCarousel();
+      });
+
+      window.addEventListener('resize', () => {
+        currentIndex = Math.min(currentIndex, getMaxIndex());
+        updateCarousel();
+      });
+
+      window.addEventListener('load', updateCarousel);
+      updateCarousel();
     }
+
   </script>
 
   
