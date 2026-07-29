@@ -1934,3 +1934,49 @@ body.lightbox-open {
   }
 }
 
+/* ==========================================================================
+   Client Revision 4 — Desktop Lightbox full-image visibility fix
+   ========================================================================== */
+
+.product-lightbox {
+  padding: clamp(18px, 3vh, 36px) clamp(18px, 3vw, 48px);
+  overflow: hidden;
+}
+
+.lightbox-dialog {
+  width: min(1200px, calc(100vw - 96px));
+  height: auto;
+  max-height: calc(100dvh - 72px);
+  aspect-ratio: auto;
+}
+
+.lightbox-dialog img {
+  display: block;
+  width: auto;
+  max-width: 100%;
+  height: auto;
+  max-height: calc(100dvh - 72px);
+  object-fit: contain;
+  object-position: center;
+}
+
+.lightbox-nav {
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+@media (max-width: 768px) {
+  .product-lightbox {
+    padding: 12px;
+  }
+
+  .lightbox-dialog {
+    width: calc(100vw - 24px);
+    max-height: calc(100dvh - 24px);
+  }
+
+  .lightbox-dialog img {
+    max-width: 100%;
+    max-height: calc(100dvh - 48px);
+  }
+}
